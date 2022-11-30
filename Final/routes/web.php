@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/login', [WebController::class, 'login_view']);
 
 Route::get('/register', [WebController::class, 'register_view']);
+
+Route::get('/role_login', [WebController::class, 'role_login']);

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Salaries extends Model
 {
     use HasFactory;
+    // God I wish I had a good salary
+    protected $fillable = [
+        'user_id',
+        'salary',
+    ];
 }
