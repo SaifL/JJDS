@@ -25,3 +25,7 @@ Route::get('/register', [WebController::class, 'register_view']);
 Route::get('/phome', function () {
     return view('patienthome');
 });
+
+Route::get('/dhome', function () {
+    return view('doctorhome');
+});
