@@ -3,7 +3,9 @@
 <header><link rel="stylesheet" href="{{ asset('css/login.css') }}"> </header>
     
 
+
     <form class="middle"  action="/api/role_login" method="get">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <label class="there" for="email">email</label>
         <input class="empty" type="text" name="email" placeholder="email"><br>
         <label class="there" for="password">Password</label>

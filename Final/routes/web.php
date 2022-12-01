@@ -14,16 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+session_start();
+
 Route::get('/', [WebController::class, 'home_view']);
 
 Route::get('/login', [WebController::class, 'login_view']);
 
 Route::get('/register', [WebController::class, 'register_view']);
 
-Route::get('/role_login', [WebController::class, 'role_login']);
 
 Route::get('/phome', [WebController::class, 'patient_view']);
 
 Route::get('/dhome', [WebController::class, 'doctor_view']);
 
+Route::get('/fhome', [WebController::class, 'family_home']);
 
+Route::get('/chome', [WebController::class, 'caregiver_home']);
