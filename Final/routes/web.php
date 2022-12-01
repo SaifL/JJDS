@@ -14,18 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [WebController::class, 'home_view']);
 
 Route::get('/login', [WebController::class, 'login_view']);
 
 Route::get('/register', [WebController::class, 'register_view']);
 
-Route::get('/phome', function () {
-    return view('patienthome');
-});
+Route::get('/role_login', [WebController::class, 'role_login']);
 
-Route::get('/dhome', function () {
-    return view('doctorhome');
-});
+Route::get('/phome', [WebController::class, 'patient_view']);
+
+Route::get('/dhome', [WebController::class, 'doctor_view']);
+
+
