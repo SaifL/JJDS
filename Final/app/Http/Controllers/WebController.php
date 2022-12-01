@@ -33,5 +33,8 @@ class WebController extends Controller
         return view('doctorhome');
     }
 
+    public function caregiver_home(){
+      return view('caregiverhome');
+    }
 
 }
