@@ -17,6 +17,7 @@
         <input type="email" name="email" placeholder="Email" >
         <input type="text" name="phone" placeholder="Phone Number" >
         <input type="password" name="password" placeholder="Password" >
+
         <input type="date" name="input">
 <div>
         <input type="text" name="family_code" placeholder="Family Code">
