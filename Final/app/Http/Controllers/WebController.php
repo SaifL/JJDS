@@ -15,6 +15,10 @@ class WebController extends Controller
         return view('register');
     }
 
+    public function family_home(){
+      return view('familyhome');
+    }
+
 
     // function that grabs the role of the user to send them to the proper home page
     // also verifies the user

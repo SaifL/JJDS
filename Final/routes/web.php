@@ -32,3 +32,4 @@ Route::get('/dhome', function () {
     return view('doctorhome');
 });
 
+Route::get('/fhome', [WebController::class, 'family_home']);
