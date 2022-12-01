@@ -27,3 +27,4 @@ Route::get('/phome', [WebController::class, 'patient_view']);
 Route::get('/dhome', [WebController::class, 'doctor_view']);
 
 
+Route::get('/fhome', [WebController::class, 'family_home']);
