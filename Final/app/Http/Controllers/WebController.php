@@ -23,6 +23,7 @@ class WebController extends Controller
 
     public function family_home(){
       return view('familyhome');
+    }
 
     public function patient_view(){
         return view('patienthome');
