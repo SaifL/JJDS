@@ -18,13 +18,16 @@
         <input type="text" name="phone" placeholder="Phone Number" >
         <input type="password" name="password" placeholder="Password" >
 
-        <input type="date" name="input">
+        <input type="date" name="DOB">
 <div>
         <input type="text" name="family_code" placeholder="Family Code">
         <input type="text" name="emergency_contact" placeholder="Emergency Contact Number">
         <input type="text" name="rel_emergency" placeholder="Relation to Emergency Contact">
 </div>
     <input type="submit" value="Register">
+    </form>
+    <form action="">
+        <input type="submit" value="test">
     </form>
     {{-- I made the three patient related items hidden by default and visible when you click the yes radio button --}}
     Yes

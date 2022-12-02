@@ -44,7 +44,17 @@ class MainController extends Controller
 
     // Register function - Pulls the info from the form and inserts it into the table.
     // TODO: Need to add verification on whether said user already exists in the future.
+    public function testcase(Request $request){
+        $emails = DB::table('users')->lists('email');
+
+        foreach($emails as $email) {
+            echo $email . '\n';
+        }
+    }
+
     public function register(Request $request){
+        $email = $request->input('email');
+        
         DB::table('users')->insert([
             'role_id' => $request->input('role'),
             'first_name' => $request->input('firstName'),
@@ -53,7 +63,7 @@ class MainController extends Controller
             'phone' => $request->input('phone'),
             'password' => $request->input('password'),
             //? Why is it named input?
-            'date_of_birth' => $request->input('input')
+            'date_of_birth' => $request->input('DOB')
         ]);
     }
 }
