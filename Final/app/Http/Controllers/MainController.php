@@ -19,22 +19,22 @@ class MainController extends Controller
             $role = DB::table('roles')->where('role_id', $user->role_id)->first();
             $_SESSION['user'] = $user->user_id;
             if ($role->access_level == 1) {
-                return redirect();
+                return redirect('/ahome');
             }
             elseif ($role->access_level == 2) {
-                return redirect();
+                return redirect('/shome');
             }
             elseif ($role->access_level == 3) {
-                return redirect();
+                return redirect('/dhome');
             }
             elseif ($role->access_level == 4) {
-                return redirect();
+                return redirect('/chome');
             }
             elseif ($role->access_level == 5) {
-                return redirect();
+                return redirect('/phome');
             }
             elseif ($role->access_level == 6) {
-                return redirect();
+                return redirect('fhome');
             }
         }
         else {
@@ -44,7 +44,17 @@ class MainController extends Controller
 
     // Register function - Pulls the info from the form and inserts it into the table.
     // TODO: Need to add verification on whether said user already exists in the future.
+    public function testcase(Request $request){
+        $emails = DB::table('users')->lists('email');
+
+        foreach($emails as $email) {
+            echo $email . '\n';
+        }
+    }
+
     public function register(Request $request){
+        $email = $request->input('email');
+        
         DB::table('users')->insert([
             'role_id' => $request->input('role'),
             'first_name' => $request->input('firstName'),
@@ -53,7 +63,7 @@ class MainController extends Controller
             'phone' => $request->input('phone'),
             'password' => $request->input('password'),
             //? Why is it named input?
-            'date_of_birth' => $request->input('input')
+            'date_of_birth' => $request->input('DOB')
         ]);
     }
 }

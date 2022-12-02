@@ -11,6 +11,7 @@
             <option value="4">Caregiver</option>
             <option value="5">Patient</option>
             <option value="6">Patient-Family</option>
+
         </select><br>
         <label class="there2" for="firstname">firstname</label>
         <input class="empty2" type="text" name="firstName" placeholder="First Name" ><br>
@@ -35,6 +36,7 @@
 </div>
     {{-- <input type="submit" value="Register">
     </form> --}}
+
     {{-- I made the three patient related items hidden by default and visible when you click the yes radio button --}}
     {{-- Yes --}}
 {{-- <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>No

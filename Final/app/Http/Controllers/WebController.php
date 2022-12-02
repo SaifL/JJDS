@@ -37,11 +37,53 @@ class WebController extends Controller
       return view('caregiverhome');
     }
 
-    public function additional_info(){
+    public function admin_home(){
+        return view('adminhome');
+    }
+
+    public function supervisor_home(){
+        return view('supervisorhome');
+    }
+
+    public function add_info(){
         return view('addinfo');
     }
 
-    public function appointment(){
+    public function doc_appoint(){
         return view('appointment');
     }
+
+
+    public function role_view(){
+        return view('role');
+    }
+
+    public function employee(){
+        return view('employee');
+    }
+
+    public function patients(){
+        return view('patients');
+    }
+
+    public function reg_approval(){
+        return view('regapproval');
+    }
+
+    public function roster_view(){
+        return view('roster');
+    }
+
+    public function new_roster(){
+        return view('newroster');
+    }
+
+    public function admin_report(){
+        return view('adminreport');
+    }
+
+    public function payment(){
+        return view('payment');
+    }
+
 }
