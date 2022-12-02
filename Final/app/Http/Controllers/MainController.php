@@ -19,22 +19,22 @@ class MainController extends Controller
             $role = DB::table('roles')->where('role_id', $user->role_id)->first();
             $_SESSION['user'] = $user->user_id;
             if ($role->access_level == 1) {
-                return redirect();
+                return redirect('/ahome');
             }
             elseif ($role->access_level == 2) {
-                return redirect();
+                return redirect('/shome');
             }
             elseif ($role->access_level == 3) {
-                return redirect();
+                return redirect('/dhome');
             }
             elseif ($role->access_level == 4) {
-                return redirect();
+                return redirect('/chome');
             }
             elseif ($role->access_level == 5) {
-                return redirect();
+                return redirect('/phome');
             }
             elseif ($role->access_level == 6) {
-                return redirect();
+                return redirect('fhome');
             }
         }
         else {
