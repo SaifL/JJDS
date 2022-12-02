@@ -32,5 +32,3 @@ Route::get('/fhome', [WebController::class, 'family_home']);
 Route::get('/chome', [WebController::class, 'caregiver_home']);
 
 Route::get('/addinfo', [WebController::class, 'additional_info']);
-
-Route::get('appointment', [WebController::class, 'appointment']);

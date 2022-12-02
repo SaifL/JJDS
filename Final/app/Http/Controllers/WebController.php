@@ -44,4 +44,8 @@ class WebController extends Controller
     public function appointment(){
         return view('appointment');
     }
+
+    public function role(){
+        return view('role');
+    }
 }
