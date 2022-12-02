@@ -42,6 +42,11 @@ class MainController extends Controller
         }
       }
 
+      public function additional_info(Request $request){
+        $patient = DB::table('users')->where('user_id', $request->input('patient_id'))->first();
+        return view('addinfo', ['patient' => $patient]);
+      }
+
     // Register function - Pulls the info from the form and inserts it into the table.
     // TODO: Need to add verification on whether said user already exists in the future.
     public function testcase(Request $request){
