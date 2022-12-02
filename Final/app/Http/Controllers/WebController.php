@@ -37,4 +37,11 @@ class WebController extends Controller
       return view('caregiverhome');
     }
 
+    public function additional_info(){
+        return view('addinfo');
+    }
+
+    public function appointment(){
+        return view('appointment');
+    }
 }

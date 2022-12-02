@@ -20,6 +20,7 @@
     </tr>
 </table>
 <br>
+
 <label>Appointments: </label>
 <p>Sample Days until date</p>
 <form>
