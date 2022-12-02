@@ -53,6 +53,7 @@ class WebController extends Controller
         return view('appointment');
     }
 
+
     public function role_view(){
         return view('role');
     }
