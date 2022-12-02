@@ -1,0 +1,68 @@
+.there5{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: blue;
+    color: white;
+    width: 9%;
+    height: 5%;
+    text-align: center;
+    display: inline-block;
+}
+
+.there6{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: blue;
+    color: white;
+    width: 9%;
+    margin-left: 40%;
+    height: 5%;
+    text-align: center;
+    display: inline-block;
+}
+
+.empty5{
+    border: 4px solid blue;
+    width: 10%;
+    height: 5%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.empty6{
+    border: 4px solid blue;
+    width: 15%;
+    height: 5%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.align5{
+    border-style: hidden;
+    width: 9%;
+    height: 23px;
+    margin-left: 6%;
+    background-color: green;
+    color: white;
+}
+
+.align6{
+    border-style: hidden;
+    width: 9%;
+    height: 23px;
+    margin-left: 2.5%;
+    background-color: green;
+    color: white;
+}
+
+.empty7{
+    border: 4px solid blue;
+    width: 18%;
+    height: 5%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.goup{
+    margin-top: -5%;
+}

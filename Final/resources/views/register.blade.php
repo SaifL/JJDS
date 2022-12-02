@@ -1,6 +1,6 @@
 <html>
     <strong><h1>Register</h1></strong>
-    <header><link rel="stylesheet" href="{{ asset('css/login.css') }}"> </header>
+    <header><link rel="stylesheet" href="{{ asset('css/register.css') }}"> </header>
     <form action="/api/register" method="post">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <label class="there2" for="role">Role</label>
