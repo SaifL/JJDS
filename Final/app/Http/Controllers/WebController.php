@@ -88,4 +88,7 @@ class WebController extends Controller
         return view('payment');
     }
 
+    public function patientofdoctor(){
+        return view('patientofdoctor');
+    }
 }
