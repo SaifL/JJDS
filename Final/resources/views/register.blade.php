@@ -5,12 +5,15 @@
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <label class="there2" for="role">Role</label>
         <select class="slightleft" name="role" required>
-            <option value="1">Admin</option>
+            {{-- <option value="1">Admin</option>
             <option value="2">Supervisor</option>
             <option value="3">Doctor</option>
             <option value="4">Caregiver</option>
             <option value="5">Patient</option>
-            <option value="6">Patient-Family</option>
+            <option value="6">Patient-Family</option> --}}
+         @foreach ($roles as $role)
+            <option value="{{$role->role_id}}">{{$role->role}}</option>
+         @endforeach
 
         </select><br>
         <label class="there2" for="firstname">firstname</label>
