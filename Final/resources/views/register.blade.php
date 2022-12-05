@@ -34,9 +34,7 @@
         <div style="margin-top: -4%; margin-left: 15.8%"><input class="empty4" type="text" name="rel_emergency" placeholder="Relation to Emergency Contact"></div><br>
         <input class="align3" type="submit" value="Ok"><form action="" method="get"><input class="align4" type="submit" value="Cancel">
 </div>
-    {{-- <input type="submit" value="Register">
-    </form> --}}
-
+    </form>
     {{-- I made the three patient related items hidden by default and visible when you click the yes radio button --}}
     {{-- Yes --}}
 {{-- <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>No
