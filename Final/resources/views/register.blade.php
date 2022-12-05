@@ -38,7 +38,7 @@
         <input class="align3" type="submit" value="Ok"><form action="" method="get"><input class="align4" type="submit" value="Cancel">
 </div>
     </form>
-    <h3>{{  }}</h3>
+    <h3></h3>
 </html>
 <script type="text/javascript">
 function yesnoCheck() {
