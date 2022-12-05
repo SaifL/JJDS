@@ -75,7 +75,8 @@ class MainController extends Controller
         // process before an error would occur
         if(count($email) > 0){
             $em_response = 'This email is not correct';
-            return view('register', ['em_response' => $em_response]);
+            $roles = DB::table('roles')->get();
+            return view('register', ['em_response' => $em_response], ['roles' => $roles]);
         }
         DB::table('users')->insert([
             'role_id' => $request->input('role'),

@@ -20,7 +20,8 @@ class WebController extends Controller
 
     public function register_view(){
         $roles = DB::table('roles')->get();
-        return view('register', ['roles' => $roles]);
+        $em_response = '';
+        return view('register', ['roles' => $roles], ['em_response' => $em_response]);
     }
 
     public function family_home(){
