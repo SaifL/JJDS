@@ -38,18 +38,7 @@
         <input class="align3" type="submit" value="Ok"><form action="" method="get"><input class="align4" type="submit" value="Cancel">
 </div>
     </form>
-    {{-- I made the three patient related items hidden by default and visible when you click the yes radio button --}}
-    {{-- Yes --}}
-{{-- <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>No
-<input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"/>
-<br>
-<div id="ifYes" style="visibility:hidden">
-    <input type="text" name="family_code" placeholder="Family Code"/>
-    <br>
-    <input type="text" name="emergency_contact" placeholder="Emergency Contact Number"/>
-    <br>
-    <input type="text" name="rel_emergency" placeholder="Relation to Emergency Contact">
-</div> --}}
+    <h3>{{  }}</h3>
 </html>
 <script type="text/javascript">
 function yesnoCheck() {
