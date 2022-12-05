@@ -11,6 +11,7 @@
         </tr>
     </table>
     <form action="/api/role" method="post">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <label>New Role: </label>
         <input type="text" name="role" placeholder="Role Name">
         <label>Access Level: </label>

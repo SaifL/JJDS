@@ -48,7 +48,15 @@ class WebController extends Controller
     }
 
     public function add_info(){
-        return view('addinfo');
+        $first_name = '';
+        $last_name = '';
+        $group = '';
+        $admission_date = '';
+        return view('addinfo')
+            ->with('first_name', $first_name)
+            ->with('last_name', $last_name)
+            ->with('group', $group)
+            ->with('admission_date', $admission_date);
     }
 
     public function doc_appoint(){
