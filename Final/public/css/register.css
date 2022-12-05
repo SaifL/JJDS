@@ -68,3 +68,7 @@
     display: inline-block;
     margin-left: 2%;
 }
+
+#hidden_div {
+    display: none;
+}
