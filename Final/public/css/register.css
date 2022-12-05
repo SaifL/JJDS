@@ -46,8 +46,7 @@
 
 .align3{
     border-style: hidden;
-    width: 9%;
-    margin-left: 6%;
+    width: 15%;
     height: 5%;
     background-color: green;
     color: white;
@@ -55,7 +54,7 @@
 
 .align4{
     border-style: hidden;
-    width: 9%;
+    width: 15%;
     height:5%;
     background-color: green;
     color: white;
