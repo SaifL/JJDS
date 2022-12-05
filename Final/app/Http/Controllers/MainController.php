@@ -34,7 +34,7 @@ class MainController extends Controller
                 return redirect('/phome');
             }
             elseif ($role->access_level == 6) {
-                return redirect('fhome');
+                return redirect('/fhome');
             }
         }
         else {
@@ -48,12 +48,13 @@ class MainController extends Controller
       }
 
     // Register function - Pulls the info from the form and inserts it into the table.
-    // TODO: Need to add verification on whether said user already exists in the future.
     public function register(Request $request){
         $email = DB::table('users')->where('email', $request->input('email'))->get();
-        
+        // This part of the function checks if the email already exists and stops the 
+        // process before an error would occur
         if(count($email) > 0){
-            return 'user already exists';
+            $em_response = 'This email is not correct';
+            return view('register', ['em_response' => $em_response]);
         }
         DB::table('users')->insert([
             'role_id' => $request->input('role'),
@@ -65,5 +66,6 @@ class MainController extends Controller
             //? Why is it named input?
             'date_of_birth' => $request->input('DOB')
         ]);
+        return redirect(('/login'));
     }
 }
