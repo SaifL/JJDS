@@ -47,7 +47,16 @@ class MainController extends Controller
       //Shows additional patient info after the user id is entered
       public function additional_info(Request $request){
         $patient = DB::table('users')->where('user_id', $request->input('patient_id'))->first();
-        return view('addinfo', ['patient' => $patient]);
+        $info = DB::table('patientinfo')->where('user_id', $request->input('patient_id'))->first();
+        $first_name = $patient->first_name;
+        $last_name = $patient->last_name;
+        $group = $info->group_no;
+        $admission_date = $info->admission_date;
+        return view('addinfo')
+            ->with('first_name', $first_name)
+            ->with('last_name', $last_name)
+            ->with('group', $group)
+            ->with('admission_date', $admission_date);
       }
 
       // Adds new role with access level to the DB

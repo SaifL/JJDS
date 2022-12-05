@@ -26,3 +26,5 @@ Route::post('/register', [MainController::class, 'register']);
 Route::get('/testcase', [MainController::class, 'testcase']);
 
 Route::post('/role', [MainController::class, 'make_role']);
+
+Route::post('/add_info', [MainController::class, 'additional_info']);
