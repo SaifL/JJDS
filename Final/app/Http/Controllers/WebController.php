@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
 {
@@ -18,7 +19,8 @@ class WebController extends Controller
     }
 
     public function register_view(){
-        return view('register');
+        $roles = DB::table('roles')->get();
+        return view('register', ['roles' => $roles]);
     }
 
     public function family_home(){

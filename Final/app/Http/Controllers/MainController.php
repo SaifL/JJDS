@@ -42,10 +42,22 @@ class MainController extends Controller
         }
       }
 
+
+      //! Doesnt work rn
+      //Shows additional patient info after the user id is entered
       public function additional_info(Request $request){
         $patient = DB::table('users')->where('user_id', $request->input('patient_id'))->first();
         return view('addinfo', ['patient' => $patient]);
       }
+
+      // Adds new role with access level to the DB
+      public function make_role(Request $request){
+        DB::table('roles')->insert([
+            'role' => $request->input('role'),
+            'access_level' => $request->input('access_level')
+        ]);
+      }
+
 
     // Register function - Pulls the info from the form and inserts it into the table.
     public function register(Request $request){
