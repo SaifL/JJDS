@@ -10,11 +10,11 @@
             <th></th>
         </tr>
     </table>
-    <form action="">
+    <form action="/api/role" method="post">
         <label>New Role: </label>
-        <input type="text">
+        <input type="text" name="role" placeholder="Role Name">
         <label>Access Level: </label>
-        <input type="text">
+        <input type="text" name="access_level" placeholder="Access Level">
         <input type="submit" value="Ok">
     </form>
     <form action="">
