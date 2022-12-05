@@ -53,3 +53,5 @@ Route::get('/makeroster', [WebController::class, 'new_roster']);
 Route::get('/report', [WebController::class, 'admin_report']);
 
 Route::get('/payment', [WebController::class, 'payment']);
+
+Route::get('/patientofdoctor', [WebController::class, 'patientofdoctor']);
