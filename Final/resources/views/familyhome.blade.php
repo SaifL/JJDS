@@ -15,7 +15,7 @@ $date = date('Y/m/d');
         <input type="text"><br>
         <input type="submit" value="Ok">
     </form>
-    <form action="">
+    <form action="/fhome">
         <input type="submit" value="Cancel">
     </form>
     <table>

@@ -36,6 +36,7 @@
             @endforeach
         </select><br><br>
         <label class="where" for="Caregiver1">Caregiver4</label>
+
         <select class="slightleft" type="text" name="Caregiver4" placeholder="Caregiver4" >
             @foreach ($caregivers as $caregiver)
                 <option value="{{$caregiver->first_name}} {{$caregiver->last_name}}">{{$caregiver->first_name}} {{$caregiver->last_name}}</option>
@@ -44,4 +45,8 @@
         <div class="fitin"><input class="align15" type="submit" value="Ok"><form action="" method="get"><input class="align16" type="submit" value="Cancel"></div>
             </form>
     </form>
+     <form action="/ahome">
+            <input class="align16" type="submit" value="Cancel"></div>
+        </form>
+
 </html>
