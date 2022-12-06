@@ -10,7 +10,7 @@ class MainController extends Controller
 {
     // function that grabs the role of the user to send them to the proper home page
     // also verifies the user
-    
+    //! ELSE STATEMENT NEEDS TO BE CHANGED
     public function role_login(Request $request){
         //grabs the whole user's row from the database
         $user = DB::table('users')->where('email', $request->input('email'))->first();
@@ -43,7 +43,6 @@ class MainController extends Controller
       }
 
 
-      //! Doesnt work rn
       //Shows additional patient info after the user id is entered
       public function additional_info(Request $request){
         $patient = DB::table('users')->where('user_id', $request->input('patient_id'))->first();
@@ -65,6 +64,40 @@ class MainController extends Controller
             'role' => $request->input('role'),
             'access_level' => $request->input('access_level')
         ]);
+      }
+
+
+      public function make_new_roster(Request $request){
+        DB::table('roster')->insert([
+            'date' => $request->input('Date'),
+            'supervisor' => $request->input('Supervisor'),
+            'doctor' => $request->input('Doctor'),
+            'caregiver1' => $request->input('Caregiver1'),
+            'caregiver2' => $request->input('Caregiver2'),
+            'caregiver3' => $request->input('Caregiver3'),
+            'caregiver4' => $request->input('Caregiver4')
+        ]);
+        return redirect('makeroster');
+      }
+
+
+      public function display_roster(Request $request){
+        $info = DB::table('roster')->where('roster_id', $request->input('roster_id'))->first();
+        $rosters = DB::table('roster')->get();
+        $supervisor = $info->supervisor;
+        $doctor = $info->doctor;
+        $caregiver1 = $info->caregiver1;
+        $caregiver2 = $info->caregiver2;
+        $caregiver3 = $info->caregiver3;
+        $caregiver4 = $info->caregiver4;
+        return view('roster')
+            ->with('supervisor', $supervisor)
+            ->with('doctor', $doctor)
+            ->with('caregiver1', $caregiver1)
+            ->with('caregiver2', $caregiver2)
+            ->with('caregiver3', $caregiver3)
+            ->with('caregiver4', $caregiver4)
+            ->with('rosters', $rosters);
       }
 
 

@@ -28,3 +28,7 @@ Route::get('/testcase', [MainController::class, 'testcase']);
 Route::post('/role', [MainController::class, 'make_role']);
 
 Route::post('/add_info', [MainController::class, 'additional_info']);
+
+Route::post('/send_new_roster', [MainController::class, 'make_new_roster']);
+
+Route::post('/display_roster', [MainController::class, 'display_roster']);
