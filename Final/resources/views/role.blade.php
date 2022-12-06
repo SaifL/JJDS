@@ -18,7 +18,7 @@
         <input type="text" name="access_level" placeholder="Access Level">
         <input type="submit" value="Ok">
     </form>
-    <form action="">
+    <form action="/ahome">
         <input type="submit" value="Cancel">
     </form>
     <style>
