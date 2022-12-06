@@ -71,6 +71,7 @@ class MainController extends Controller
     // Register function - Pulls the info from the form and inserts it into the table.
     public function register(Request $request){
         $email = DB::table('users')->where('email', $request->input('email'))->get();
+        $role = $request->input('role');
         // This part of the function checks if the email already exists and stops the 
         // process before an error would occur
         if(count($email) > 0){
@@ -78,16 +79,34 @@ class MainController extends Controller
             $roles = DB::table('roles')->get();
             return view('register', ['em_response' => $em_response], ['roles' => $roles]);
         }
-        DB::table('users')->insert([
-            'role_id' => $request->input('role'),
-            'first_name' => $request->input('firstName'),
-            'last_name' => $request->input('lastName'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'password' => $request->input('password'),
-            //? Why is it named input?
-            'date_of_birth' => $request->input('DOB')
-        ]);
-        return redirect(('/login'));
+        
+        // This part of the function checks whether the person is a patient or not
+        if($role == 5){
+            DB::table('approvals')->insert([
+                'role_id' => $request->input('role'),
+                'first_name' => $request->input('firstName'),
+                'last_name' => $request->input('lastName'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+                'password' => $request->input('password'),
+                'date_of_birth' => $request->input('DOB'),
+                'family_code' => $request->input('familyCode'),
+                'emergency_contact' => $request->input('emergencyContact'),
+                'rel_emergency' => $request->input('relEmergency')
+            ]);
+        }
+        else {
+            DB::table('approvals')->insert([
+                'role_id' => $request->input('role'),
+                'first_name' => $request->input('firstName'),
+                'last_name' => $request->input('lastName'),
+                'email' => $request->input('email'),
+                'phone' => $request->input('phone'),
+                'password' => $request->input('password'),
+                'date_of_birth' => $request->input('DOB')
+            ]);
+            return redirect(('/login'));
+        }
+        return redirect(('/register'));
     }
 }
