@@ -29,7 +29,7 @@
 <form action="">
     <input type="submit" value="Ok">
 </form>
-<form action="">
+<form action="/chome">
     <input type="submit" value="Cancel">
 </form>
 <style>

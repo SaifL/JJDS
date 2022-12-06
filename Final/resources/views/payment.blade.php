@@ -9,8 +9,10 @@
         <input  class="righthere" type="text"><br><br>
         <label class="where">New Payment</label>
         <input  class="righthere" type="text"><br><br>
-        <input class="align15" type="submit" value='Ok'><form action=""><input class="align16" type="submit" value="Cancel">
-    </form>
+        <input class="align15" type="submit" value='Ok'>
     </form><br>
+    <form action="/ahome">
+        <input class="align16" type="submit" value="Cancel">
+    </form>
     <input class="alignnow" type="submit" value='Update'></form>
 </html>
