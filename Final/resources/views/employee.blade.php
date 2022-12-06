@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    <h1>Employee</h1>
+    <header><link rel="stylesheet" href="{{ asset('css/employee.css') }}"></header>
     <table>
         <tr>
             <th>ID</th>
@@ -7,17 +9,11 @@
             <th>Role</th>
             <th>Salary</th>
         </tr>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
     </table>
     <form action="">
-        <label>Emp ID: </label>
-        <input type="text">
-        <label>New Salary: </label>
-        <input type="text">
+        <label class="where">Emp ID: </label>
+        <input class="righthere" type="text"><br><br>
+        <label class="where">New Salary: </label>
+        <input class="righthere" type="text">
     </form>
 </html>
