@@ -96,7 +96,7 @@ class MainController extends Controller
             ]);
         }
         else {
-            DB::table('approvals')->insert([
+            DB::table('users')->insert([
                 'role_id' => $request->input('role'),
                 'first_name' => $request->input('firstName'),
                 'last_name' => $request->input('lastName'),
