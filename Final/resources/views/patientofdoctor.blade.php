@@ -17,7 +17,7 @@
     </table>
     <input type="submit" value="Ok">
     </form>
-    <form action="">
+    <form action="/dhome">
         <input type="submit" value="Cancel">
     </form>
     <style>
