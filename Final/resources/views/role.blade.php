@@ -11,11 +11,13 @@
     </table>
     <form action="/api/role" method="post">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
         <div class="down"><label class="where">New Role: </label><input class="righthere" type="text" name="role" placeholder="Role Name"><br><br></div>
         <label class="where">Access Level: </label>
         <input class="righthere" type="text" name="access_level" placeholder="Access Level">
         <input class="align15" type="submit" value='Ok'><form action=""><input class="align16" type="submit" value="Cancel">
         </form>
+
     </form>
     <style>
         p {

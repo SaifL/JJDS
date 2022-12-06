@@ -17,7 +17,9 @@
         <select class="slightleft" type="Caregiver3" name="Caregiver3" placeholder="Caregiver3" ></select><br><br>
         <label class="where" for="Caregiver1">Caregiver4</label>
         <select class="slightleft" type="text" name="Caregiver4" placeholder="Caregiver4" ></select><br><br>
-        <div class="fitin"><input class="align15" type="submit" value="Ok"><form action="" method="get"><input class="align16" type="submit" value="Cancel"></div>
-            </form>
-    </form>
+        <div class="fitin"><input class="align15" type="submit" value="Ok">
+        </form>
+        <form action="/ahome">
+            <input class="align16" type="submit" value="Cancel"></div>
+        </form>
 </html>

@@ -22,5 +22,5 @@ class Patient_of_Doctor extends Model
         'lunch',
         'dinner',
     ];
-    //! ^ OH BROTHER WHOEVER WROTE THIS IS DUMB
+    //! Jariel is cringe
 }
