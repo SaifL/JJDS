@@ -1,0 +1,35 @@
+.where{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: blue;
+    color: white;
+    width: 9%;
+    height: 23px;
+    margin-left: 5.2%;
+    text-align: center;
+    display: inline-block;
+}
+
+.away{
+    margin-left: 12%;
+    margin-top: -1.5%;
+}
+
+.away2{
+    margin-left: 1%;
+    height: 100px;
+}
+
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-size: 16px;
+    color: white;
+    background-color: blue;
+    text-align: left;
+}
+th{
+    height: 23px;
+    width: 150px;
+    margin-top: 5%;
+}
