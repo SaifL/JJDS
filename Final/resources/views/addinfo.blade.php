@@ -12,10 +12,11 @@
         <div class="goup"><label class="there6">Patient Name:</label><input value="{{$first_name}} {{$last_name}}" class="empty5" type="text" disabled><br></div>
 
 
-        <div class="fitin"><input class="align5" type="submit" value="Ok">        
+        <div class="fitin"><input class="align5" type="submit" value="Ok">
+        <a href="/dhome" class="align6">Cancel</a>   
     </form>
-    <form action="/dhome">
+    {{-- <form action="/dhome">
         <input class="align6" type="submit" value="Cancel">
-    </form>
+    </form> --}}
 </div>
 </html>

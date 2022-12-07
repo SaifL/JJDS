@@ -11,8 +11,9 @@
     </table>
         <div class="away"><label class="away" for="yes">Yes</label><input type="checkbox" id="yes"><label class="away2" for="no">No</label><input type="checkbox" id="no"><br></div>
     <input type="submit" value="Ok">
+    <a href="/ahome" >Cancel</a>
     </form>
-    <form action="/ahome">
+    {{-- <form action="/ahome">
         <input type="submit" value="Cancel">
-    </form>
+    </form> --}}
 </html>

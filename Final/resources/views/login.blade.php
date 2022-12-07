@@ -12,9 +12,10 @@
         <input class="empty" type="password" name="password" placeholder="password" >
         <br>
         <br>
-        <input class="align" type="submit" value="Ok"><form action="" method="get">
-        </form>
-        <form action="/">
+        <input class="align" type="submit" value="Ok">
+        <a href="/" class="align2">Cancel</a>
+    </form>
+        {{-- <form action="/">
         <input class="align2" type="submit" value="Cancel">
-        </form>
+        </form> --}}
 </html>

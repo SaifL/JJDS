@@ -28,10 +28,11 @@
 </table>
 <form action="">
     <input type="submit" value="Ok">
+    <a href="/chome">Cancel</a>
 </form>
-<form action="/chome">
+{{-- <form action="/chome">
     <input type="submit" value="Cancel">
-</form>
+</form> --}}
 <style>
     h1 {
         font-size: 24px;

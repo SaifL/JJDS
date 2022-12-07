@@ -82,11 +82,31 @@ class WebController extends Controller
     }
 
     public function roster_view(){
-        return view('roster');
+        $rosters = DB::table('roster')->get();
+        $supervisor = '';
+        $doctor = '';
+        $caregiver1 = '';
+        $caregiver2 = '';
+        $caregiver3 = '';
+        $caregiver4 = '';
+        return view('roster')
+            ->with('supervisor', $supervisor)
+            ->with('doctor', $doctor)
+            ->with('caregiver1', $caregiver1)
+            ->with('caregiver2', $caregiver2)
+            ->with('caregiver3', $caregiver3)
+            ->with('caregiver4', $caregiver4)
+            ->with('rosters', $rosters);
     }
 
     public function new_roster(){
-        return view('newroster');
+        $supervisors = DB::table('users')->where('role_id', '=', 2)->get();
+        $doctors = DB::table('users')->where('role_id', '=', 3)->get();
+        $caregivers = DB::table('users')->where('role_id', '=', 4)->get();
+        return view('newroster')
+            ->with('supervisors', $supervisors)
+            ->with('doctors', $doctors)
+            ->with('caregivers', $caregivers);
     }
 
     public function admin_report(){
