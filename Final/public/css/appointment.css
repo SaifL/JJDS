@@ -63,9 +63,29 @@
 
 .align4{
     border-style: hidden;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 0.62%;
+    padding-bottom: 0.75%;
     width: 9%;
     height: 35px;
     background-color: green;
     color: white;
     margin-left: 2.4%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
