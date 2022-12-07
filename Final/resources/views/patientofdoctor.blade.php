@@ -20,9 +20,5 @@
     <input type="submit" value="Ok">
     <a href="/dhome">Cancel</a>
     </form>
-    {{-- <form action="/dhome">
-        <input type="submit" value="Cancel">
-
-    </form>
 
 </html>

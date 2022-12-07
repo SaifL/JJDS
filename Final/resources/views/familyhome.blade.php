@@ -4,15 +4,16 @@ date_default_timezone_set('America/New_York');
 $date = date('Y/m/d');
 ?>
 <html>
-    <label>Date: </label>
+    <header><link rel="stylesheet" href="{{ asset('css/fhome.css') }}"></header>
+    <label class="where">Date: </label>
     <p><?php
     echo $date;
     ?></p>
     <form action="">
-        <label>Family Code: </label>
-        <input type="text"><br>
-        <label>Patient ID: </label>
-        <input type="text"><br>
+        <label class="where">Family Code: </label>
+        <input class="righthere" type="text"><br><br>
+        <label class="where">Patient ID: </label>
+        <input class="righthere" type="text"><br><br>
         <input type="submit" value="Ok">
         <a href="/fhome">Cancel</a>
     </form>
@@ -22,56 +23,15 @@ $date = date('Y/m/d');
     <table>
         <tr>
             <th>Doctor's Name</th>
-            <th>Doctor's Appointment</th>
+            <th>Doctor's Appointment<br><input class="righthere2" type="text"></th>
             <th>Caregiver's Name</th>
-            <th>Morning Medicine</th>
-            <th>Afternoon Medicine</th>
-            <th>Night Medicine</th>
-            <th>Breakfast</th>
-            <th>Lunch</th>
-            <th>Dinner</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Morning Medicine<br><input class="righthere2" type="text"></th>
+            <th>Afternoon Medicine<br><input class="righthere2" type="text"></th>
+            <th>Night Medicine<br><input class="righthere2" type="text"></th>
+            <th>Breakfast<br><input class="righthere2" type="text"></th>
+            <th>Lunch<br><input class="righthere2" type="text"></th>
+            <th>Dinner<br><input class="righthere2" type="text"></th>
         </tr>
     </table>
 
-<style>
-h1 {
-    font-size: 24px;
-    margin-top: 100px;
-    margin-right: 150px;
-    margin-left: 80px;
-}
-h2 {
-    font-size: 16px;
-    margin-right: 150px;
-    margin-left: 80px;
-}
-p {
-    font-size: 14px;
-    margin-right: 150px;
-    margin-left: 80px;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    font-size: 16px;
-    margin-right: 150px;
-    margin-left: 80px;  
-}
-ol, ul {
-    font-size: 14px;
-    margin-right: 150px;
-    margin-left: 55px;
-}
-</style>
 </html>
