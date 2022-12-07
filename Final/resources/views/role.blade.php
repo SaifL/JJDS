@@ -17,10 +17,11 @@
         <label>Access Level: </label>
         <input type="text" name="access_level" placeholder="Access Level">
         <input type="submit" value="Ok">
+        <a href="/ahome">Cancel</a>
     </form>
-    <form action="/ahome">
+    {{-- <form action="/ahome">
         <input type="submit" value="Cancel">
-    </form>
+    </form> --}}
     <style>
         h1 {
             font-size: 24px;

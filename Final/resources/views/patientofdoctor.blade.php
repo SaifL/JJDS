@@ -16,10 +16,11 @@
         <th>Night Med</th>
     </table>
     <input type="submit" value="Ok">
+    <a href="/dhome">Cancel</a>
     </form>
-    <form action="/dhome">
+    {{-- <form action="/dhome">
         <input type="submit" value="Cancel">
-    </form>
+    </form> --}}
     <style>
         h1 {
             font-size: 24px;

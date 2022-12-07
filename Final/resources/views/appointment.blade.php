@@ -11,9 +11,10 @@
         <select class="slightleft" name="role" required></select><br>
         <div class="goup"><label class="there6">Patient Name:</label><input class="empty5" type="text"><br></div>
         <div class="fitin"><input class="align3" type="submit" value="Ok">
+        <a href="/ahome" class="align4">Cancel</a>
         </form>
-        <form action="ahome">
+        {{-- <form action="/ahome">
             <input class="align4" type="submit" value="Cancel">
-        </form>
+        </form> --}}
         </div>
 </html>

@@ -33,11 +33,13 @@
             <div style="margin-top: -4%; margin-left: 15.8%"><input class="empty4" type="text" name="relEmergency" placeholder="Relation to Emergency Contact"></div>
         </div>
         <br>
-        <input class="align3" type="submit" value="Ok"></form>
+        <input class="align3" type="submit" value="Ok">
+        <a href="/" class="align4">Cancel</a>
+    </form>
 
-        <form action="/">
+        {{-- <form action="/">
             <input class="align4" type="submit" value="Cancel">
-        </form>
+        </form> --}}
 </div>
 
     <h3>{{ $em_response }}</h3>

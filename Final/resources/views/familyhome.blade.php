@@ -14,10 +14,11 @@ $date = date('Y/m/d');
         <label>Patient ID: </label>
         <input type="text"><br>
         <input type="submit" value="Ok">
+        <a href="/fhome">Cancel</a>
     </form>
-    <form action="/fhome">
+    {{-- <form action="/fhome">
         <input type="submit" value="Cancel">
-    </form>
+    </form> --}}
     <table>
         <tr>
             <th>Doctor's Name</th>

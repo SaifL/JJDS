@@ -17,9 +17,10 @@
         <select class="slightleft" type="Caregiver3" name="Caregiver3" placeholder="Caregiver3" ></select><br><br>
         <label class="where" for="Caregiver1">Caregiver4</label>
         <select class="slightleft" type="text" name="Caregiver4" placeholder="Caregiver4" ></select><br><br>
-        <div class="fitin"><input class="align15" type="submit" value="Ok">
+        <div class="fitin"><input class="align15" type="submit" value="Ok">\
+        <a href="/ahome" class="align16">Cancel</a>
         </form>
-        <form action="/ahome">
+        {{-- <form action="/ahome">
             <input class="align16" type="submit" value="Cancel"></div>
-        </form>
+        </form> --}}
 </html>
