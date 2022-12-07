@@ -142,4 +142,8 @@ class MainController extends Controller
         }
         return redirect(('/register'));
     }
+
+    public function approval(Request $request) {
+        
+    }
 }
