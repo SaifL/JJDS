@@ -70,6 +70,8 @@ class WebController extends Controller
     }
 
     public function employee(){
+        $employees = DB::table('users')
+            ->whereBetween('role_id', [1,4])->get();
         return view('employee');
     }
 
