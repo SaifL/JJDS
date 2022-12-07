@@ -15,5 +15,8 @@
     {{-- <form action="/ahome">
         <input class="align16" type="submit" value="Cancel">
     </form> --}}
-    <input class="alignnow" type="submit" value='Update'></form>
+    <form action="">
+        <input class="alignnow" type="submit" value='Update'>
+    </form>
+
 </html>

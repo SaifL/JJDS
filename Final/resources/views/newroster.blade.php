@@ -42,11 +42,11 @@
                 <option value="{{$caregiver->first_name}} {{$caregiver->last_name}}">{{$caregiver->first_name}} {{$caregiver->last_name}}</option>
             @endforeach
         </select><br><br>
-        <div class="fitin"><input class="align15" type="submit" value="Ok"><form action="" method="get"><input class="align16" type="submit" value="Cancel"></div>
-            </form>
+        <div class="fitin"><input class="align15" type="submit" value="Ok">
+        <a href="/ahome" class="align16">Cancel</a>
     </form>
-     <form action="/ahome">
+     {{-- <form action="/ahome">
             <input class="align16" type="submit" value="Cancel"></div>
-        </form>
+        </form> --}}
 
 </html>

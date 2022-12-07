@@ -36,6 +36,10 @@
 
 .align16{
     border-style: hidden;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.45%;
+    padding-bottom: 0.55%;
     width: 9%;
     height: 30px;
     margin-left: 3%;
@@ -59,4 +63,20 @@
     margin-left: 18%;
     background-color: green;
     color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }

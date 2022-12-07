@@ -34,11 +34,15 @@
 
 .align2{
     border-style: hidden;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.6%;
+    padding-bottom: 0.95%;
     width: 9%;
     height:5%;
     background-color: green;
     color: white;
-    margin-left: 39%;
+    margin-left: 9%;
 }
 
 .alignhome{
@@ -58,4 +62,20 @@
     margin-left: 2%;
     height: 4%;
     width: 10%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
