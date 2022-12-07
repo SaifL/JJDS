@@ -2,6 +2,14 @@
 <html>
     <h1>Employee</h1>
     <header><link rel="stylesheet" href="{{ asset('css/employee.css') }}"></header>
+    <form action="" method="post">
+        <label for="">Seach By ID</label>
+        <select name="" id="">
+            @foreach
+                <option value=""></option>
+            @endforeach
+        </select>
+    </form>
     <table>
         <tr>
             <th>ID</th>
