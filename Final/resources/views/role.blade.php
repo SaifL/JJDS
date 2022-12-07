@@ -12,6 +12,7 @@
     <form action="/api/role" method="post">
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
+
         <div class="down"><label class="where">New Role: </label><input class="righthere" type="text" name="role" placeholder="Role Name"><br><br></div>
         <label class="where">Access Level: </label>
         <input class="righthere" type="text" name="access_level" placeholder="Access Level">
@@ -19,6 +20,7 @@
         </form>
 
     </form>
+
     <style>
         p {
             font-size: 14px;

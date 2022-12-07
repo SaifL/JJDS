@@ -16,8 +16,9 @@
         </tr>
     </table>
     <input type="submit" value="Ok">
+    <a href="/ahome" >Cancel</a>
     </form>
-    <form action="/ahome">
+    {{-- <form action="/ahome">
         <input type="submit" value="Cancel">
-    </form>
+    </form> --}}
 </html>
