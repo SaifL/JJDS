@@ -17,9 +17,9 @@ $date = date('Y/m/d');
     ?></p><br>
     <table>
         <tr>
-            <th>Doctor's Name<br><input class="righthere2" type="text"></th>
+            <th>Doctor's Name</th>
             <th>Doctor's Appointment<br><input class="righthere2" type="text"></th>
-            <th>Caregiver's Name<br><input class="righthere2" type="text"></th>
+            <th>Caregiver's Name</th>
             <th>Morning Medicine<br><input class="righthere2" type="text"></th>
             <th>Afternoon Medicine<br><input class="righthere2" type="text"></th>
             <th>Night Medicine<br><input class="righthere2" type="text"></th>

@@ -1,66 +1,21 @@
 <!DOCTYPE html>
 <html>
-
+    <h1>Caregiver's Home</h1>
+    <header><link rel="stylesheet" href="{{ asset('css/chome.css') }}"></header>
 <table>
-    <tr>
-        List of Patients duty today
-    </tr>
+    <label class="where">List of Patients duty today</label>
     <tr>
         <th>Name</th>
-        <th>Morning Medicine</th>
-        <th>Afternoon Medicine</th>
-        <th>Night Medicine</th>
-        <th>Breakfast</th>
-        <th>Lunch</th>
-        <th>Dinner</th>
-    </tr>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Morning Medicine<br><input class="righthere2" type="text"></th>
+        <th>Afternoon Medicine<br><input class="righthere2" type="text"></th>
+        <th>Night Medicine<br><input class="righthere2" type="text"></th>
+        <th>Breakfast<br><input class="righthere2" type="text"></th>
+        <th>Lunch<br><input class="righthere2" type="text"></th>
+        <th>Dinner<br><input class="righthere2" type="text"></th>
     </tr>
 </table>
 <form action="">
     <input type="submit" value="Ok">
     <a href="/chome">Cancel</a>
 </form>
-{{-- <form action="/chome">
-    <input type="submit" value="Cancel">
-</form> --}}
-<style>
-    h1 {
-        font-size: 24px;
-        margin-top: 100px;
-        margin-right: 150px;
-        margin-left: 80px;
-    }
-    h2 {
-        font-size: 16px;
-        margin-right: 150px;
-        margin-left: 80px;
-    }
-    p {
-        font-size: 14px;
-        margin-right: 150px;
-        margin-left: 80px;
-    }
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        font-size: 16px;
-        margin-right: 150px;
-        margin-left: 80px;  
-    }
-    ol, ul {
-        font-size: 14px;
-        margin-right: 150px;
-        margin-left: 55px;
-    }
-    </style>
 </html>
