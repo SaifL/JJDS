@@ -10,10 +10,7 @@
         </tr>
     </table>
         <div class="away"><label class="away" for="yes">Yes</label><input type="checkbox" id="yes"><label class="away2" for="no">No</label><input type="checkbox" id="no"><br></div>
-    <input type="submit" value="Ok">
-    <a href="/ahome" >Cancel</a>
+    <input class="align15" type="submit" value="Ok">
+    <a class="align16" href="/ahome" >Cancel</a>
     </form>
-    {{-- <form action="/ahome">
-        <input type="submit" value="Cancel">
-    </form> --}}
 </html>

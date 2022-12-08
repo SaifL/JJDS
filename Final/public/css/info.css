@@ -40,7 +40,7 @@
 .align5{
     border-style: hidden;
     width: 9%;
-    height: 23px;
+    height: 32px;
     background-color: green;
     color: white;
 }
@@ -49,13 +49,13 @@
     border-style: hidden;
     padding-left: 3%;
     padding-right: 3%;
-    padding-top: 0.3485%;
-    padding-bottom: 0.55%;
+    padding-top: 0.6%;
+    padding-bottom: 0.95%;
     width: 9%;
-    height: 23px;
-    margin-top: 10px;
+    height:5%;
     background-color: green;
     color: white;
+    margin-left: 3%;
 }
 
 a:link {

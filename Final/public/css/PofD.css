@@ -31,15 +31,45 @@ th{
     width: 150px;
 }
 
-.align{
+.ALLIWANTISFORYOUTOGOUP{
+    margin-top: -1.6%;
+}
+
+.align15{
     border-style: hidden;
     width: 9%;
-    margin-left: 30%;
-    height: 25px;
+    height: 34px;
+    margin-left: 36.9%;
+    margin-top: -22%;
     background-color: green;
     color: white;
 }
 
-.ALLIWANTISFORYOUTOGOUP{
-    margin-top: -1.6%;
+.align16{
+    border-style: hidden;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 0.42%;
+    padding-bottom: 0.62%;
+    width: 9%;
+    height: 30px;
+    margin-left: 3%;
+    background-color: green;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
