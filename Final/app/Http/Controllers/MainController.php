@@ -164,6 +164,7 @@ class MainController extends Controller
                 'emergency_contact' => $request->input('emergencyContact'),
                 'rel_emergency' => $request->input('relEmergency')
             ]);
+            return redirect('/login');
         }
         else {
             DB::table('users')->insert([
@@ -177,7 +178,6 @@ class MainController extends Controller
             ]);
             return redirect(('/login'));
         }
-        return redirect(('/register'));
     }
 
     public function approval(Request $request) {
