@@ -1,0 +1,52 @@
+.where{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: blue;
+    color: white;
+    width: 10%;
+    height: 23px;
+    text-align: center;
+    display: inline-block;
+}
+
+.righthere{
+    border: 4px solid blue;
+    width: 10%;
+    height: 5%;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin-left: 80px;  
+    margin-top: 2%;
+    background-color: rgb(207, 207, 207);
+}
+th{
+    height: 150px;
+    width: 100px;
+}
+
+
+.righthere2{
+    border: 4px solid blue;
+    background-color: rgb(207, 207, 207);
+    width: 30%;
+    height: 10%;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.align2{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: green;
+    color: white;
+    width: 10%;
+    height: 25px;
+    text-align: center;
+    display: inline-block;
+}
