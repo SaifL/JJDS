@@ -33,3 +33,42 @@ th{
     width: 150px;
     margin-top: 5%;
 }
+
+.align15{
+    border-style: hidden;
+    width: 9%;
+    height: 34px;
+    margin-left: 20%;
+    margin-top: 10%;
+    background-color: green;
+    color: white;
+}
+
+.align16{
+    border-style: hidden;
+    padding-left: 3.5%;
+    padding-right: 3.5%;
+    padding-top: 0.42%;
+    padding-bottom: 0.62%;
+    width: 9%;
+    height: 30px;
+    margin-left: 3%;
+    background-color: green;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}

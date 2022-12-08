@@ -3,7 +3,7 @@
     <h1>Caregiver's Home</h1>
     <header><link rel="stylesheet" href="{{ asset('css/chome.css') }}"></header>
 <table>
-    <label class="where">List of Patients duty today</label>
+    <input class="where" type="submit" value="List of Patients today">
     <tr>
         <th>Name</th>
         <th>Morning Medicine<br><input class="righthere2" type="text"></th>
@@ -15,7 +15,7 @@
     </tr>
 </table>
 <form action="">
-    <input type="submit" value="Ok">
-    <a href="/chome">Cancel</a>
+    <input class="align15" type="submit" value="Ok">
+    <a class="align16" href="/chome">Cancel</a>
 </form>
 </html>

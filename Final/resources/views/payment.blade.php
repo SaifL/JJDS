@@ -12,9 +12,6 @@
         <input class="align15" type="submit" value='Ok'>
         <a href="/ahome" class="align16">Cancel</a>
     </form><br>
-    {{-- <form action="/ahome">
-        <input class="align16" type="submit" value="Cancel">
-    </form> --}}
     <form action="">
         <input class="alignnow" type="submit" value='Update'>
     </form>

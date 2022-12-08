@@ -22,7 +22,7 @@ table, th, td {
     border-collapse: collapse;
     font-size: 16px;
     margin-left: 80px;  
-    margin-top: 2%;
+    margin-top: 6%;
     background-color: rgb(207, 207, 207);
 }
 th{
@@ -37,4 +37,46 @@ th{
     height: 10%;
     display: inline-block;
     margin-top: 10px;
+}
+
+.jarielneedstogetajob{
+    margin-left: 27%;
+    margin-top: -6%;
+}
+
+.align15{
+    border-style: hidden;
+    width: 15%;
+    height: 45px;
+    margin-top: 3%;
+    background-color: green;
+    color: white;
+}
+
+.align16{
+    border-style: hidden;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1.2%;
+    padding-bottom: 1.4%;
+    height: 30px;
+    margin-left: 3%;
+    background-color: green;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
 }
