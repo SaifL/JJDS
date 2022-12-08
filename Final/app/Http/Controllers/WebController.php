@@ -72,7 +72,19 @@ class WebController extends Controller
     public function employee(){
         $employees = DB::table('users')
             ->whereBetween('role_id', [1,4])->get();
-        return view('employee');
+        $roles = DB::table('roles')
+            ->whereBetween('access_level', [1,4])->get();
+        $salaries = DB::table('salaries')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('salaries', 'users.user_id','=','salaries.user_id')
+            ->select('users.user_id','users.first_name','users.last_name','roles.role','salaries.salary')
+            ->get();
+        return view('employee')
+            ->with('tables', $tables)
+            ->with('employees', $employees)
+            ->with('roles', $roles)
+            ->with('salaries', $salaries);
     }
 
     public function patients(){
