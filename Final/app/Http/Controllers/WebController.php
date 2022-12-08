@@ -80,7 +80,8 @@ class WebController extends Controller
     }
 
     public function reg_approval(){
-        return view('regapproval');
+        $users = DB::table('approvals')->get();
+        return view('regapproval', ['users' => $users]);
     }
 
     public function roster_view(){
