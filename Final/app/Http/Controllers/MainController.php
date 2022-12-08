@@ -58,12 +58,49 @@ class MainController extends Controller
             ->with('admission_date', $admission_date);
       }
 
+
+      public function search_id(Request $request){
+        $search = DB::table('users')->where('user_id', $request->input('user_id'))->first();
+        $role = DB::table('role')->where('role_id', $search->role_id)->first();
+        $role = $role->role;
+        $user_id = $search->user_id;
+        $employees = DB::table('users')
+            ->whereBetween('role_id', [1,4])->get();
+        $roles = DB::table('roles')
+            ->whereBetween('access_level', [1,4])->get();
+        $salaries = DB::table('salaries')->get();
+        return view('employee')
+            ->with('user_id', $user_id)
+            ->with('user_role', $role)
+            ->with('employees', $employees)
+            ->with('roles', $roles)
+            ->with('salaries', $salaries)
+            ->with('search', $search);
+      }
+
+      public function change_salary(Request $request){
+        $salary = DB::table('salaries')->where('user_id', $request->input('user_id'))->get();
+        $salaryCount = $salary->count();
+        if ($salaryCount == 0) {
+            DB::table('salaries')->insert(
+                ['user_id' => $request->input('user_id'), 'salary' => $request->input('salary')]
+            );
+        }
+        else {
+            DB::table('salaries')
+                ->where('user_id', $request->input('user_id'))
+                ->update(['salary' => $request->input('salary')]);
+        }
+        return redirect('/employee');
+      }
+
       // Adds new role with access level to the DB
       public function make_role(Request $request){
         DB::table('roles')->insert([
             'role' => $request->input('role'),
             'access_level' => $request->input('access_level')
         ]);
+        return redirect('/role');
       }
 
 

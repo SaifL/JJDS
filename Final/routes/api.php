@@ -32,3 +32,7 @@ Route::post('/add_info', [MainController::class, 'additional_info']);
 Route::post('/send_new_roster', [MainController::class, 'make_new_roster']);
 
 Route::post('/display_roster', [MainController::class, 'display_roster']);
+
+Route::post('/search_id', [MainController::class, 'search_id']);
+
+Route::post('/employee', [MainController::class, 'change_salary']);
