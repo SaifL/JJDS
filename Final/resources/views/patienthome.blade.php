@@ -27,6 +27,17 @@ $date = date('Y/m/d');
             <th>Lunch<br><input class="righthere2" type="text"></th>
             <th>Dinner<br><input class="righthere2" type="text"></th>
         </tr>
+        <tr>
+            <th></th>
+            <th><br><input class="checkbox" type="checkbox" /></th>
+            <th></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th> <br><input class="checkbox" type="checkbox"></th>
+            <th> <br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+        </tr>
 
     </table>
 </html>

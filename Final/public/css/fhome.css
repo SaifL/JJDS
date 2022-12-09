@@ -80,3 +80,8 @@ a:hover {
 a:active {
     text-decoration: none;
 }
+
+.checkbox{
+height: 20px;
+width: 50px;
+}

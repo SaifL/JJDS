@@ -71,6 +71,8 @@
         <input class="righthere" type="text" name="user_id"><br><br>
         <label class="where">New Salary: </label>
         <input class="righthere" type="text" name="salary">
-        <input type="submit" value="Change" id="">
+        <input type="submit" value="Change" id=""><br><br>
+        <input class="align15" type="submit" value="Ok">
+        <a class="align4" href="/ahome" >Cancel</a>
     </form>
 </html>

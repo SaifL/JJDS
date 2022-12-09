@@ -72,3 +72,8 @@ th{
     display: inline-block;
     margin-top: 10px;
 }
+
+.checkbox{
+    height: 20px;
+    width: 50px;
+    }
