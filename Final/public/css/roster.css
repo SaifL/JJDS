@@ -30,3 +30,12 @@ th{
     display: inline-block;
     margin-left: 2%;
 }
+
+.align{
+    border-style: hidden;
+    width: 9%;
+    margin-left: 1%;
+    height: 25px;
+    background-color: green;
+    color: white;
+}
