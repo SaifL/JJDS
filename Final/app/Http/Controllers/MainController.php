@@ -181,6 +181,38 @@ class MainController extends Controller
     }
 
     public function approval(Request $request) {
+        $check = $request->input('choice');
+
+        if($check == 1){
+            $approval = DB::table('approvals')->where('app_id', $request->input('appId'))->first();
+            DB::table('users')->insert([
+                'role_id' => $approval->role_id,
+                'first_name' => $approval->first_name,
+                'last_name' => $approval->last_name,
+                'email' => $approval->email,
+                'phone' => $approval->phone,
+                'password' => $approval->password,
+                'date_of_birth' => $approval->date_of_birth
+            ]);
+
+            $newuser = DB::table('users')->latest('user_id')->first();
+            DB::table('patientinfo')->insert([
+                'user_id' => $newuser->user_id,
+                'group_no' => 3,
+                'family_code' => $approval->family_code,
+                'emergency_contact' => $approval->emergency_contact,
+                'rel_emergency' => $approval->rel_emergency,
+                'admission_date' => date("Y-m-d")
+            ]);
+
+            DB::table('approvals')->where('app_id', $request->input('appId'))->delete();
+        }
+        else if($check == 2) {
+            $approval = DB::table('approvals')->where('app_id', $request->input('appId'))->first();
+            DB::table('approvals')->where('app_id', $request->input('appId'))->delete();
+        }
+    
+            return redirect('/approval');
         
     }
 }
