@@ -23,7 +23,7 @@ Route::get('/role_login', [MainController::class, 'role_login']);
 
 Route::post('/register', [MainController::class, 'register']);
 
-Route::get('/testcase', [MainController::class, 'testcase']);
+Route::post('/approval', [MainController::class, 'approval']);
 
 Route::post('/role', [MainController::class, 'make_role']);
 
