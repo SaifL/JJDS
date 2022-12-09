@@ -60,22 +60,79 @@ class MainController extends Controller
 
 
       public function search_id(Request $request){
-        $search = DB::table('users')->where('user_id', $request->input('user_id'))->first();
-        $role = DB::table('role')->where('role_id', $search->role_id)->first();
-        $role = $role->role;
-        $user_id = $search->user_id;
         $employees = DB::table('users')
             ->whereBetween('role_id', [1,4])->get();
         $roles = DB::table('roles')
             ->whereBetween('access_level', [1,4])->get();
         $salaries = DB::table('salaries')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('salaries', 'users.user_id','=','salaries.user_id')
+            ->select('users.user_id','users.first_name','users.last_name','roles.role','salaries.salary')
+            ->where('users.user_id', '=', $request->input('user_id'))
+            ->get();
         return view('employee')
-            ->with('user_id', $user_id)
-            ->with('user_role', $role)
+            ->with('tables', $tables)
             ->with('employees', $employees)
             ->with('roles', $roles)
-            ->with('salaries', $salaries)
-            ->with('search', $search);
+            ->with('salaries', $salaries);
+      }
+
+      public function search_name(Request $request){
+        $employees = DB::table('users')
+            ->whereBetween('role_id', [1,4])->get();
+        $roles = DB::table('roles')
+            ->whereBetween('access_level', [1,4])->get();
+        $salaries = DB::table('salaries')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('salaries', 'users.user_id','=','salaries.user_id')
+            ->select('users.user_id','users.first_name','users.last_name','roles.role','salaries.salary')
+            ->where('users.last_name', '=', $request->input('last_name'))
+            ->get();
+        return view('employee')
+            ->with('tables', $tables)
+            ->with('employees', $employees)
+            ->with('roles', $roles)
+            ->with('salaries', $salaries);
+      }
+
+      public function search_role(Request $request){
+        $employees = DB::table('users')
+            ->whereBetween('role_id', [1,4])->get();
+        $roles = DB::table('roles')
+            ->whereBetween('access_level', [1,4])->get();
+        $salaries = DB::table('salaries')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('salaries', 'users.user_id','=','salaries.user_id')
+            ->select('users.user_id','users.first_name','users.last_name','roles.role','salaries.salary')
+            ->where('users.role_id', '=', $request->input('role_id'))
+            ->get();
+        return view('employee')
+            ->with('tables', $tables)
+            ->with('employees', $employees)
+            ->with('roles', $roles)
+            ->with('salaries', $salaries);
+      }
+
+      public function search_salary(Request $request){
+        $employees = DB::table('users')
+            ->whereBetween('role_id', [1,4])->get();
+        $roles = DB::table('roles')
+            ->whereBetween('access_level', [1,4])->get();
+        $salaries = DB::table('salaries')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('salaries', 'users.user_id','=','salaries.user_id')
+            ->select('users.user_id','users.first_name','users.last_name','roles.role','salaries.salary')
+            ->where('salaries.salary', '=', $request->input('salary'))
+            ->get();
+        return view('employee')
+            ->with('tables', $tables)
+            ->with('employees', $employees)
+            ->with('roles', $roles)
+            ->with('salaries', $salaries);
       }
 
       public function change_salary(Request $request){
