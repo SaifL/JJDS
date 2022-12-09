@@ -23,14 +23,25 @@ $date = date('Y/m/d');
     <table>
         <tr>
             <th>Doctor's Name</th>
-            <th>Doctor's Appointment<br><input class="righthere2" type="text"></th>
+            <th>Doctor's Appointment</th>
             <th>Caregiver's Name</th>
-            <th>Morning Medicine<br><input class="righthere2" type="text"></th>
-            <th>Afternoon Medicine<br><input class="righthere2" type="text"></th>
-            <th>Night Medicine<br><input class="righthere2" type="text"></th>
-            <th>Breakfast<br><input class="righthere2" type="text"></th>
-            <th>Lunch<br><input class="righthere2" type="text"></th>
-            <th>Dinner<br><input class="righthere2" type="text"></th>
+            <th>Morning Medicine</th>
+            <th>Afternoon Medicine</th>
+            <th>Night Medicine</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th><br><input class="checkbox" type="checkbox" /></th>
+            <th></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th> <br><input class="checkbox" type="checkbox"></th>
+            <th> <br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
+            <th><br><input class="checkbox" type="checkbox"></th>
         </tr>
     </table>
 
