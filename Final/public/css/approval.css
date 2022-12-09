@@ -76,3 +76,14 @@ a:active {
 .DYLAN{
     margin-left: 10%;
 }
+
+.where2{
+    border-style: hidden;
+    border-radius: 1px 7px 1px 0px;
+    background-color: blue;
+    color: white;
+    width: 9%;
+    height: 23px;
+    text-align: center;
+    display: inline-block;
+}
