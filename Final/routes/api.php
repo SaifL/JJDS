@@ -36,3 +36,5 @@ Route::post('/display_roster', [MainController::class, 'display_roster']);
 Route::post('/search_id', [MainController::class, 'search_id']);
 
 Route::post('/employee', [MainController::class, 'change_salary']);
+
+Route::get('/fhomedepot', [MainController::class, 'fhomedepot']);
