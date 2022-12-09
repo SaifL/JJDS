@@ -37,8 +37,12 @@ Route::post('/search_id', [MainController::class, 'search_id']);
 
 Route::post('/employee', [MainController::class, 'change_salary']);
 
+
+Route::get('/fhomedepot', [MainController::class, 'fhomedepot']);
+
 Route::post('/search_name', [MainController::class, 'search_name']);
 
 Route::post('/search_role', [MainController::class, 'search_role']);
 
 Route::post('/search_salary', [MainController::class, 'search_salary']);
+

@@ -6,7 +6,7 @@
         <tr>
             <th>Name</th>
             <th>Role</th>
-            <th>Lemonade</th>
+            <th>Approve?</th>
         </tr>
         @foreach ($users as $user)
             

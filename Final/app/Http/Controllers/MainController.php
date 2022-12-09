@@ -237,8 +237,13 @@ class MainController extends Controller
         }
     }
 
+    // Approval function checks the status of the radio buttons when the ok button is pressed
+    //and either pushes the changes then deletes or just deletes. However, if none are pressed than it just redirects to the page.
     public function approval(Request $request) {
         $check = $request->input('choice');
+        $number = rand(1, 4);
+
+        
 
         if($check == 1){
             $approval = DB::table('approvals')->where('app_id', $request->input('appId'))->first();
@@ -255,7 +260,7 @@ class MainController extends Controller
             $newuser = DB::table('users')->latest('user_id')->first();
             DB::table('patientinfo')->insert([
                 'user_id' => $newuser->user_id,
-                'group_no' => 3,
+                'group_no' => $number,
                 'family_code' => $approval->family_code,
                 'emergency_contact' => $approval->emergency_contact,
                 'rel_emergency' => $approval->rel_emergency,
@@ -268,8 +273,12 @@ class MainController extends Controller
             $approval = DB::table('approvals')->where('app_id', $request->input('appId'))->first();
             DB::table('approvals')->where('app_id', $request->input('appId'))->delete();
         }
-    
-            return redirect('/approval');
+
+        return redirect('/approval');
+    }
+
+
+    public function fhomedepot(Request $request) {
         
     }
 }
