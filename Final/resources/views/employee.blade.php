@@ -3,7 +3,11 @@
     <h1>Employee</h1>
     <header><link rel="stylesheet" href="{{ asset('css/employee.css') }}"></header>
 
-    <form action="search_id" method="post">
+    <form action="/employee" method="get">
+        <input type="submit" value="Refresh">
+    </form>
+
+    <form action="/api/search_id" method="post">
         <label for="">Seach By ID</label>
         <select name="user_id">
             @foreach ($employees as $employee)
@@ -13,9 +17,9 @@
         <input type="submit" value="Search">
     </form>
 
-    <form action="" method="post">
+    <form action="/api/search_name" method="post">
         <label for="">Seach By Name</label>
-        <select name="user_id">
+        <select name="last_name">
             @foreach ($employees as $employee)
                 <option value="{{$employee->last_name}}">{{$employee->last_name}}</option>
             @endforeach
@@ -23,9 +27,9 @@
         <input type="submit" value="Search">
     </form>
 
-    <form action="" method="post">
+    <form action="/api/search_role" method="post">
         <label for="">Seach By Role</label>
-        <select name="user_id">
+        <select name="role_id">
             @foreach ($roles as $role)
                 <option value="{{$role->role_id}}">{{$role->role}}</option>
             @endforeach
@@ -33,9 +37,9 @@
         <input type="submit" value="Search">
     </form>
 
-    <form action="" method="post">
+    <form action="/api/search_salary" method="post">
         <label for="">Seach By Salary</label>
-        <select name="user_id">
+        <select name="salary">
             @foreach ($salaries as $salary)
                 <option value="{{$salary->salary}}">{{$salary->salary}}</option>
             @endforeach
