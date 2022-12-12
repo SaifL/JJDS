@@ -281,4 +281,20 @@ class MainController extends Controller
     public function fhomedepot(Request $request) {
         
     }
+
+    public function search_name2(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('users.last_name', '=', $request->input('last_name'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients);
+      }
 }

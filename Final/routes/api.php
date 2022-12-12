@@ -46,3 +46,4 @@ Route::post('/search_role', [MainController::class, 'search_role']);
 
 Route::post('/search_salary', [MainController::class, 'search_salary']);
 
+Route::post('/search_name2', [MainController::class, 'search_name2']);

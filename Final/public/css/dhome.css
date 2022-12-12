@@ -40,6 +40,14 @@ th{
     color: white;
 }
 
+.align2{
+    border-style: hidden;
+    width: 9%;
+    height: 25px;
+    background-color: green;
+    color: white;
+}
+
 .ALLIWANTISFORYOUTOGOUP{
     margin-top: -1.6%;
 }
