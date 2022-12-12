@@ -4,7 +4,7 @@
     <header><link rel="stylesheet" href="{{ asset('css/employee.css') }}"></header>
 
     <form action="/employee" method="get">
-        <input type="submit" value="Refresh">
+        <input type="submit" value="Clear Filters">
     </form>
 
     <form action="/api/search_id" method="post">
@@ -71,7 +71,7 @@
         <input class="righthere" type="text" name="user_id"><br><br>
         <label class="where">New Salary: </label>
         <input class="righthere" type="text" name="salary">
-        <input type="submit" value="Change" id=""><br><br>
+        <br><br>
         <input class="align15" type="submit" value="Ok">
         <a class="align4" href="/ahome" >Cancel</a>
     </form>
