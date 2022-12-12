@@ -61,7 +61,9 @@ class WebController extends Controller
     }
 
     public function doc_appoint(){
-        return view('appointment');
+        $dates = DB::table('roster')->get();
+        return view('appointment')
+            ->with('dates', $dates);
     }
 
 
@@ -88,7 +90,15 @@ class WebController extends Controller
     }
 
     public function patients(){
-        return view('patients');
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
     }
 
     public function reg_approval(){
