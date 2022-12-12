@@ -6,7 +6,13 @@
         <label class="there2">Patient ID: </label>
         <input class="empty2" type="text"><br>
         <label class="there2">Date: </label>
-        <input class="empty2" type="date"><br>
+        <select class="empty2" type="date">
+            
+            @foreach ($dates as $date)
+              <option value="{{$date->date}}">{{$date->date}}</option>  
+            @endforeach
+
+        </select><br>
         <label class="there2">Doctor: </label>
         <select class="slightleft" name="role" required></select><br>
         <div class="goup"><label class="there6">Patient Name:</label><input class="empty5" type="text"><br></div>
