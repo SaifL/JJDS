@@ -3,6 +3,7 @@
 use App\http\Controllers\MainController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Monolog\Handler\RotatingFileHandler;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,16 @@ Route::post('/search_role', [MainController::class, 'search_role']);
 
 Route::post('/search_salary', [MainController::class, 'search_salary']);
 
+
 Route::post('/search_name2', [MainController::class, 'search_name2']);
+
+Route::post('/patient_id', [MainController::class, 'patient_id']);
+
+Route::post('/patient_name', [MainController::class, 'patient_name']);
+
+Route::post('/patient_relation', [MainController::class, 'patient_relation']);
+
+Route::post('/patient_contact', [MainController::class, 'patient_contact']);
+
+Route::post('/patient_admission', [MainController::class, 'patient_admission']);
+
