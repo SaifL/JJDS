@@ -33,7 +33,17 @@ class WebController extends Controller
     }
 
     public function doctor_view(){
-        return view('doctorhome');
+        $patients = DB::table('users')
+        ->where('role_id', 5)->get();
+        $tables = DB::table('users')
+        ->join('roles', 'users.role_id', '=','roles.role_id')
+        ->join('prescription', 'users.user_id','=','prescription.patient_id')
+        ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment', 'prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+        ->where('users.role_id', 5)
+        ->get();
+        return view('doctorhome')
+        ->with('tables', $tables)
+        ->with('patients', $patients);
     }
 
     public function caregiver_home(){
