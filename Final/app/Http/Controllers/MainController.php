@@ -58,6 +58,71 @@ class MainController extends Controller
             ->with('admission_date', $admission_date);
       }
 
+      public function patient_id(Request $request){
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->where('users.user_id','=',$request->input('user_id'))
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
+      }
+
+      public function patient_name(Request $request){
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->where('users.last_name','=',$request->input('last_name'))
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
+      }
+
+      public function patient_relation(Request $request){
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->where('patientinfo.rel_emergency','=',$request->input('rel_emergency'))
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
+      }
+
+      public function patient_contact(Request $request){
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->where('patientinfo.emergency_contact','=',$request->input('contact'))
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
+      }
+
+      public function patient_admission(Request $request){
+        $tables = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=','patientinfo.user_id')
+        ->where('patientinfo.admission_date','=',$request->input('admission_date'))
+        ->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $infos = DB::table('patientinfo')->get();
+        return view('patients')
+            ->with('infos', $infos)
+            ->with('patients', $patients)
+            ->with('tables', $tables);
+      }
+
 
       public function search_id(Request $request){
         $employees = DB::table('users')
@@ -291,4 +356,20 @@ class MainController extends Controller
 
         return view('/fhome', ['patient' => $patient]);
     }
+
+    public function search_name2(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('users.last_name', '=', $request->input('last_name'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients);
+      }
 }
