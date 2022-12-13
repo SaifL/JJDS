@@ -4,7 +4,11 @@
     <header><link rel="stylesheet" href="{{ asset('css/info.css') }}"> </header>
     <form action="/api/add_info" method="post">
         <label class="there5">Patient ID:</label>
-        <input class="empty5" type="text" name="patient_id"><br><br>
+        <select class="empty5" type="text" name="patient_id">
+            @foreach ($patients as $patient)
+                <option value="{{$patient->user_id}}">{{$patient->user_id}}</option>   
+            @endforeach
+        </select><br><br>
         <label class="there5">Group:</label>
         <input class="empty5" type="text" value="{{$group}}" disabled><br><br>
         <label class="there5">Admission Date:</label>
