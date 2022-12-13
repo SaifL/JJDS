@@ -342,9 +342,19 @@ class MainController extends Controller
         return redirect('/approval');
     }
 
-
+    // This function is for the family home and helps request the data and retrieve the information asked
     public function fhomedepot(Request $request) {
-        
+        $patient = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
+        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
+        ->join('prescription', 'users.user_id', '=', '')
+        ->select('users.user_id', 'patientinfo.family_code', 'daily.date', )
+        ->where('users.user_id', '=', $request->input('patientid'))
+        ->where('patientinfo.family_code', '=', $request->input('familycode'))
+        ->where('daily.date', '=', $request->input('date'))
+        ->get();
+
+        return view('/fhome', ['patient' => $patient]);
     }
 
     public function search_name2(Request $request){
