@@ -2,6 +2,7 @@
     <h1>Login</h1>
 <header><link rel="stylesheet" href="{{ asset('css/login.css') }}"> </header>
     
+    <h2 class="middle">{{$er_msg}}</h2>
 
 
     <form class="middle"  action="/api/role_login" method="get">

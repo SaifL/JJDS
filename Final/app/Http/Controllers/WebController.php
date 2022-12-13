@@ -15,7 +15,8 @@ class WebController extends Controller
 
 
     public function login_view(){
-        return view('login');
+        $er_msg = '';
+        return view('login', ['er_msg' => $er_msg]);
     }
 
     public function register_view(){
@@ -63,7 +64,9 @@ class WebController extends Controller
         $last_name = '';
         $group = '';
         $admission_date = '';
+        $patients = DB::table('users')->where('role_id', 5)->get();
         return view('addinfo')
+            ->with('patients', $patients)
             ->with('first_name', $first_name)
             ->with('last_name', $last_name)
             ->with('group', $group)
