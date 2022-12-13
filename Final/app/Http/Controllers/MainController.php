@@ -38,7 +38,8 @@ class MainController extends Controller
             }
         }
         else {
-            echo "no";
+            $er_msg = "An incorrect email and password combination has been entered.";
+            return view('login', ['er_msg' => $er_msg]);
         }
       }
 
@@ -51,7 +52,9 @@ class MainController extends Controller
         $last_name = $patient->last_name;
         $group = $info->group_no;
         $admission_date = $info->admission_date;
+        $patients = DB::table('users')->where('role_id', 5)->get();
         return view('addinfo')
+            ->with('patients', $patients)
             ->with('first_name', $first_name)
             ->with('last_name', $last_name)
             ->with('group', $group)
