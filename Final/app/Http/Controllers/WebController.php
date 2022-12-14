@@ -26,7 +26,25 @@ class WebController extends Controller
     }
 
     public function family_home(){
-      return view('familyhome');
+        $doctor = "";
+        $caregiver = "";
+        $check = 0;
+        $morningMed = 0;
+        $afternoonMed = 0;
+        $nightMed = 0;
+        $breakfast = 0;
+        $lunch = 0;
+        $dinner = 0;
+        return view('familyhome')
+      ->with('doctor', $doctor)
+      ->with('caregiver', $caregiver)
+      ->with('check', $check)
+      ->with('morningmed', $morningMed)
+      ->with('afternoonmed', $afternoonMed)
+      ->with('nightmed', $nightMed)
+      ->with('breakfast', $breakfast)
+      ->with('lunch', $lunch)
+      ->with('dinner', $dinner);
     }
 
     public function patient_view(){

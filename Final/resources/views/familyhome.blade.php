@@ -4,10 +4,10 @@ date_default_timezone_set('America/New_York');
 $date = date('Y/m/d');
 ?>
 <html>
-    <h1>Family Memeber's Home</h1>
+    <h1>Family Member's Home</h1>
     <header><link rel="stylesheet" href="{{ asset('css/fhome.css') }}"></header>
     <br><br>
-    <form action="/api/fhome">
+    <form action="/api/fhomedepot">
     <label class="where">Date: </label>
     <input class="righthere" name="date" type="date" required><br><br>
         <div class="jarielneedstogetajob"><label class="where">Family Code: </label>
@@ -33,15 +33,54 @@ $date = date('Y/m/d');
             <th>Dinner</th>
         </tr>
         <tr>
-            <th>{{$patient->}}</th>
-            <th><br><input class="checkbox" type="checkbox" disabled></th>
-            <th></th>
-            <th><br><input class="checkbox" type="checkbox" disabled></th>
-            <th> <br><input class="checkbox" type="checkbox" disabled></th>
-            <th> <br><input class="checkbox" type="checkbox" disabled></th>
-            <th><br><input class="checkbox" type="checkbox" disabled></th>
-            <th><br><input class="checkbox" type="checkbox" disabled></th>
-            <th><br><input class="checkbox" type="checkbox" disabled></th>
+            <th>{{$doctor}}</th>
+            <?php 
+                if($check == 1){
+                    echo '<th><br><input name="appointment" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else {
+                    echo '<th><br><input name="appointment" class="checkbox" type="checkbox" disabled></th>';
+                }
+            ?>
+            <th>{{$caregiver}}</th>
+            <?php 
+                if($morningmed == 1){
+                    echo '<th><br><input name="morningmed" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else {
+                    echo '<th><br><input name="morningmed" class="checkbox" type="checkbox" disabled></th>';
+                }
+                if($afternoonmed == 1){
+                    echo '<th><br><input name="afternoonmed" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else{
+                    echo '<th><br><input name="afternoonmed" class="checkbox" type="checkbox" disabled></th>';
+                }
+                if($nightmed == 1){
+                    echo '<th><br><input name="nightmed" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else{
+                    echo '<th><br><input name="nightmed" class="checkbox" type="checkbox" disabled></th>';
+                }
+                if($breakfast == 1){
+                    echo '<th><br><input name="breakfast" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else{
+                    echo '<th><br><input name="breakfast" class="checkbox" type="checkbox" disabled></th>';
+                }
+                if($lunch == 1){
+                    echo '<th><br><input name="lunch" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else{
+                    echo '<th><br><input name="lunch" class="checkbox" type="checkbox" disabled></th>';
+                }
+                if($dinner == 1){
+                    echo '<th><br><input name="dinner" class="checkbox" type="checkbox" checked disabled></th>';
+                }
+                else{
+                    echo '<th><br><input name="dinner" class="checkbox" type="checkbox" disabled></th>';
+                }
+            ?>
         </tr>
     </table>
 
