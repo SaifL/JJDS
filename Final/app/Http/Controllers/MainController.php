@@ -10,10 +10,13 @@ class MainController extends Controller
 {
     // function that grabs the role of the user to send them to the proper home page
     // also verifies the user
-    //! ELSE STATEMENT NEEDS TO BE CHANGED
     public function role_login(Request $request){
         //grabs the whole user's row from the database
         $user = DB::table('users')->where('email', $request->input('email'))->first();
+        if ($user == null) {
+            $er_msg = "An incorrect email and password combination has been entered.";
+            return view('login', ['er_msg' => $er_msg]);
+        }
         if ($user->password == $request->input('password')) {
             // grabs role info using the role id from the user
             $role = DB::table('roles')->where('role_id', $user->role_id)->first();
@@ -218,6 +221,13 @@ class MainController extends Controller
         }
         return redirect('/employee');
       }
+      
+
+
+    //   public function update_payments(Request $request){
+    //     $payments = DB::table('payments')->where('patient_id', $request->input('patient_id'))->get();
+    //     $paymentsCount = $payments->count();
+    //   }
 
       // Adds new role with access level to the DB
       public function make_role(Request $request){

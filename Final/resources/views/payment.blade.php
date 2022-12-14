@@ -4,7 +4,7 @@
     <header><link rel="stylesheet" href="{{ asset('css/payment.css') }}"> </header>
     <form action="">
         <label class="where">Patient ID: </label>
-        <input class="righthere" type="text"><br><br>
+        <input class="righthere" type="text" name="patient_id"><br><br>
         <label class="where">Total Due: </label>
         <input  class="righthere" type="text"><br><br>
         <label class="where">New Payment</label>
