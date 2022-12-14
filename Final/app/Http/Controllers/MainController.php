@@ -229,6 +229,41 @@ class MainController extends Controller
     //     $paymentsCount = $payments->count();
     //   }
 
+    public function choose_date(Request $request){
+        $doctors = DB::table('roster')->where('date', $request->input('date'))->get();
+        $name = DB::table('users')->where('user_id', $request->input('user_id'))->get();
+        $dates = DB::table('roster')->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $fname = $name[0]->first_name;
+        $lname = $name[0]->last_name;
+        $user_id = $name[0]->user_id;
+        $d = $request->input('date');
+        return view('appointment')
+            ->with('user_id', $user_id)
+            ->with('d', $d)
+            ->with('doctors', $doctors)
+            ->with('lname', $lname)
+            ->with('fname', $fname)
+            ->with('patients', $patients)
+            ->with('dates', $dates);
+    }
+
+    public function make_appointment(Request $request){
+        $name = trim($request->input('doctor'));
+        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.\s([\w-])$#', '$1', $name);
+        $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $name ) );
+        $doctor = DB::table('users')
+            ->where('first_name', $first_name)
+            ->where('last_name', $last_name)
+            ->get();
+        DB::table('appointment')->insert([
+            'patient_id' => $request->input('user_id'),
+            'app_date' => $request->input('date'),
+            'doctor_id' => $doctor[0]->user_id
+        ]);
+        return redirect('/appointment');
+    }
+
       // Adds new role with access level to the DB
       public function make_role(Request $request){
         DB::table('roles')->insert([

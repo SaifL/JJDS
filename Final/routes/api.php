@@ -60,3 +60,7 @@ Route::post('/patient_relation', [MainController::class, 'patient_relation']);
 Route::post('/patient_contact', [MainController::class, 'patient_contact']);
 
 Route::post('/patient_admission', [MainController::class, 'patient_admission']);
+
+Route::post('/choose_date', [MainController::class, 'choose_date']);
+
+Route::post('/make_appointment', [MainController::class, 'make_appointment']);
