@@ -95,7 +95,19 @@ class WebController extends Controller
 
     public function doc_appoint(){
         $dates = DB::table('roster')->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $doctors = DB::table('roster')->get();
+        $lname = '';
+        $fname = '';
+        $d = '';
+        $user_id = '';
         return view('appointment')
+            ->with('user_id', $user_id)
+            ->with('d', $d)
+            ->with('fname', $fname)
+            ->with('lname', $lname)
+            ->with('doctors', $doctors)
+            ->with('patients', $patients)
             ->with('dates', $dates);
     }
 
