@@ -473,4 +473,22 @@ class MainController extends Controller
             ->with('medicine',$medicine)
             ->with('patients', $patients);
       }
+
+      public function search_date(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('prescription.date', '=', $request->input('dates'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients)
+            ->with('dates', $dates);
+      }
 }

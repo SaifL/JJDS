@@ -22,6 +22,15 @@
         </select>
         <input type="submit" value="Search" class="align2">
     </form>
+    <form action="/api/search_date" method="post">
+        <label for="">Seach By Date</label>
+        <select name="dates" class="where">
+            @foreach ($dates as $date)
+                <option value="{{$date->date}}">{{$date->date}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Search" class="align2">
+    </form>
 <table>
     <tr>
         <th>Name</th>
