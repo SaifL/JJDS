@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+date_default_timezone_set('America/New_York');
+$date = date('Y/m/d');
+?>
 <html>
     <h1>Doctor's Home</h1>
     <header><link rel="stylesheet" href="{{ asset('css/dhome.css') }}"></header>
@@ -73,9 +77,10 @@
 </table>
 <br>
 
+
 <label class="where">Appointments: </label>
-<input class="righthere" type="text">
-<form>
+<form action="/api/future_appointments" method="GET">
+    <input class="righthere" type="date" name="date"><br><br>
     <div class="ALLIWANTISFORYOUTOGOUP"><input class="align" type="submit"></div>
 </form>
 <table>
@@ -83,5 +88,11 @@
         <th>Patient</th>
         <th>Date</th>
     </tr>
+    @foreach ($appointment as $appointment)
+    <tr>
+        <td>{{$appointment->last_name}}</td>
+        <td>{{$appointment->app_date}}</td>
+    </tr>
+    @endforeach
 </table>
 </html>

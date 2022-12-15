@@ -54,6 +54,8 @@ class WebController extends Controller
     }
 
     public function doctor_view(){
+        date_default_timezone_set('America/New_York');
+        $current_date = date('Y/m/d');
         $patients = DB::table('users')
         ->where('role_id', 5)->get();
         $dates = DB::table('prescription')->get();
@@ -65,12 +67,14 @@ class WebController extends Controller
         ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment', 'prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
         ->where('users.role_id', 5)
         ->get();
+        $appointment = [];
         return view('doctorhome')
         ->with('tables', $tables)
         ->with('medicine', $medicine)
         ->with('patients', $patients)
         ->with('dates', $dates)
-        ->with('comment', $comment);
+        ->with('comment', $comment)
+        ->with('appointment', $appointment);
     }
 
     public function caregiver_home(){
