@@ -30,3 +30,18 @@ th{
     height: 80px;
     width: 100px;
 }
+
+.align16{
+    border-style: hidden;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0.45%;
+    padding-bottom: 0.55%;
+    width: 9%;
+    height: 30px;
+    margin-left: 3%;
+    background-color: green;
+    color: white;
+    margin-bottom: 2%;
+    text-decoration: none;
+}

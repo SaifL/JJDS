@@ -46,6 +46,29 @@ class MainController extends Controller
         }
       }
 
+      public function go_home(){
+        $user = DB::table('users')->where('user_id', $_SESSION['user'])->get();
+        $role = DB::table('roles')->where('role_id', $user[0]->role_id)->first();
+        if ($role->access_level == 1) {
+            return redirect('/ahome');
+        }
+        elseif ($role->access_level == 2) {
+            return redirect('/shome');
+        }
+        elseif ($role->access_level == 3) {
+            return redirect('/dhome');
+        }
+        elseif ($role->access_level == 4) {
+            return redirect('/chome');
+        }
+        elseif ($role->access_level == 5) {
+            return redirect('/phome');
+        }
+        elseif ($role->access_level == 6) {
+            return redirect('/fhome');
+        }
+    }
+
 
       //Shows additional patient info after the user id is entered
       public function additional_info(Request $request){
@@ -545,6 +568,7 @@ class MainController extends Controller
         return redirect('/chome');
     }
 
+
     public function headache(Request $request){
         $patients = DB::table('users')->where("user_id", $_SESSION['user'])->get();
         $patientinfo = DB::table('patientinfo')->where('user_id', '=', $_SESSION['user'])->first();
@@ -592,7 +616,7 @@ class MainController extends Controller
             $check = 0;
         }
 
-        // These will check for the patients group number and put the correct caregiver for said date with them.
+        // These will check for the patient's group number and put the correct caregiver for said date with them.
         if($groupno == 1){
             
             return view('patienthome')
@@ -669,7 +693,9 @@ class MainController extends Controller
             ->with('comment', $comment);
       }
 
-      public function search_date(Request $request){
+
+
+  public function search_date(Request $request){
         $patients = DB::table('users')
             ->where('role_id', 5)->get();
         $medicine = DB::table('prescription')->get();
@@ -687,7 +713,48 @@ class MainController extends Controller
             ->with('patients', $patients)
             ->with('dates', $dates)
             ->with('comment', $comment);
-      }
+    }
+
+    public function adminreport(Request $request){
+        $reportdates = DB::table('daily')
+        ->select('date')
+        ->distinct()->get();
+
+        $roster = DB::table('roster')->where('date', '=', $request->input('date'))->first();
+
+        $patients = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
+        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
+        ->join('roster', 'roster.date', '=', 'daily.date')
+        ->select('users.user_id', 'users.first_name', 'patientinfo.group_no','users.last_name', 'daily.morning_med', 'daily.afternoon_med', 
+        'daily.night_med', 'daily.breakfast', 'daily.lunch', 'daily.dinner')
+        ->where('daily.date', '=', $request->input('date'))
+        ->get();
+
+
+        if($roster == null){
+            return redirect('/report');
+        }
+
+        $inputdate = $request->input('date');
+        $caregiver1 = $roster->caregiver1;
+        $caregiver2 = $roster->caregiver2;
+        $caregiver3 = $roster->caregiver3;
+        $caregiver4 = $roster->caregiver4;
+
+        $doctor = $roster->doctor;
+        return view('adminreport')
+        ->with('patients', $patients)
+        ->with('doctor', $doctor)
+        ->with('reportdates', $reportdates)
+        ->with('caregiver1', $caregiver1)
+        ->with('caregiver2', $caregiver2)
+        ->with('caregiver3', $caregiver3)
+        ->with('caregiver4', $caregiver4)
+        ->with('inputdate', $inputdate);
+    }
+            
+      
 
       public function search_comment(Request $request){
         $patients = DB::table('users')
@@ -730,4 +797,5 @@ class MainController extends Controller
             ->with('dates', $dates)
             ->with('comment', $comment);
       }
+
 }

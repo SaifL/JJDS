@@ -18,7 +18,7 @@
         <th>Night Med</th>
     </table><br><br>
     <input class="align15" type="submit" value="Ok">
-    <a class="align16" href="/dhome">Cancel</a>
+    <a class="align16" href="/home">Cancel</a>
     </form>
 
 </html>

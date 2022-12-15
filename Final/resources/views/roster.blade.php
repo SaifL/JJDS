@@ -15,6 +15,8 @@
 </select>
 <input class="align" type="submit" value="Select Roster">
 </form>
+<br><br>
+<a href="/home" class="align16">Cancel</a>
 
 
 <table>

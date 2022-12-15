@@ -43,7 +43,7 @@
             @endforeach
         </select><br><br>
         <div class="fitin"><input class="align15" type="submit" value="Ok">
-        <a href="/ahome" class="align16">Cancel</a>
+        <a href="/home" class="align16">Cancel</a>
     </form>
      {{-- <form action="/ahome">
             <input class="align16" type="submit" value="Cancel"></div>
