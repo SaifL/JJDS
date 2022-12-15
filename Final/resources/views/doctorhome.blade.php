@@ -31,6 +31,15 @@
         </select>
         <input type="submit" value="Search" class="align2">
     </form>
+    <form action="/api/search_comment" method="post">
+        <label for="">Seach By Date</label>
+        <select name="comment" class="where">
+            @foreach ($comment as $comment)
+                <option value="{{$comment->comment}}">{{$comment->comment}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Search" class="align2">
+    </form>
 <table>
     <tr>
         <th>Name</th>
