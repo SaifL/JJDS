@@ -52,6 +52,10 @@ Route::post('/search_name2', [MainController::class, 'search_name2']);
 
 Route::post('/search_date', [MainController::class, 'search_date']);
 
+Route::post('/search_comment', [MainController::class, 'search_comment']);
+
+Route::post('/search_medicine', [MainController::class, 'search_medicine']);
+
 Route::post('/patient_id', [MainController::class, 'patient_id']);
 
 Route::post('/patient_name', [MainController::class, 'patient_name']);

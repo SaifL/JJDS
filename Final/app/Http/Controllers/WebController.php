@@ -48,13 +48,17 @@ class WebController extends Controller
     }
 
     public function patient_view(){
-        return view('patienthome');
+        $patients = DB::table('users')->where("user_id", $_SESSION['user'])->get();
+        return view('patienthome')
+        ->with('patients', $patients);
     }
 
     public function doctor_view(){
         $patients = DB::table('users')
         ->where('role_id', 5)->get();
         $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
+        $medicine = DB::table('prescription')->get();
         $tables = DB::table('users')
         ->join('roles', 'users.role_id', '=','roles.role_id')
         ->join('prescription', 'users.user_id','=','prescription.patient_id')
@@ -63,8 +67,10 @@ class WebController extends Controller
         ->get();
         return view('doctorhome')
         ->with('tables', $tables)
+        ->with('medicine', $medicine)
         ->with('patients', $patients)
-        ->with('dates', $dates);
+        ->with('dates', $dates)
+        ->with('comment', $comment);
     }
 
     public function caregiver_home(){

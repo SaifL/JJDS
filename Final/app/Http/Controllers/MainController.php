@@ -249,13 +249,14 @@ class MainController extends Controller
     }
 
     public function make_appointment(Request $request){
-        $name = trim($request->input('doctor'));
-        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.\s([\w-])$#', '$1', $name);
-        $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $name ) );
+        $name = explode(' ' ,$request->input('doctor'));
+        $first_name = $name[0];
+        $last_name = $name[1];
         $doctor = DB::table('users')
             ->where('first_name', $first_name)
             ->where('last_name', $last_name)
             ->get();
+        
         DB::table('appointment')->insert([
             'patient_id' => $request->input('user_id'),
             'app_date' => $request->input('date'),
@@ -492,23 +493,6 @@ class MainController extends Controller
         }
     }
 
-    //! Need to put how functions work please and answer questions you think people might have about the code!
-    public function search_name2(Request $request){
-        $patients = DB::table('users')
-            ->where('role_id', 5)->get();
-        $medicine = DB::table('prescription')->get();
-        $tables = DB::table('users')
-            ->join('roles', 'users.role_id', '=','roles.role_id')
-            ->join('prescription', 'users.user_id','=','prescription.patient_id')
-            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
-            ->where('users.last_name', '=', $request->input('last_name'))
-            ->get();
-        return view('doctorhome')
-            ->with('tables', $tables)
-            ->with('medicine',$medicine)
-            ->with('patients', $patients);
-      }
-
 
     // Updates or inserts information based on whether the ok button is hit
     public function caregiverupdate(Request $request){
@@ -561,11 +545,36 @@ class MainController extends Controller
         return redirect('/chome');
     }
 
-    public function search_date(Request $request){
+
+    //! Need to put how functions work please and answer questions you think people might have about the code!
+    public function search_name2(Request $request){
         $patients = DB::table('users')
             ->where('role_id', 5)->get();
         $medicine = DB::table('prescription')->get();
         $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('users.last_name', '=', $request->input('last_name'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients)
+            ->with('dates', $dates)
+            ->with('comment', $comment);
+      }
+
+
+
+  public function search_date(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
         $tables = DB::table('users')
             ->join('roles', 'users.role_id', '=','roles.role_id')
             ->join('prescription', 'users.user_id','=','prescription.patient_id')
@@ -576,7 +585,8 @@ class MainController extends Controller
             ->with('tables', $tables)
             ->with('medicine',$medicine)
             ->with('patients', $patients)
-            ->with('dates', $dates);
+            ->with('dates', $dates)
+            ->with('comment', $comment);
     }
 
     public function adminreport(Request $request){
@@ -617,4 +627,49 @@ class MainController extends Controller
         ->with('caregiver4', $caregiver4)
         ->with('inputdate', $inputdate);
     }
+            
+      
+
+      public function search_comment(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('prescription.comment', '=', $request->input('comment'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients)
+            ->with('dates', $dates)
+            ->with('comment', $comment);
+      }
+
+      public function search_medicine(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('prescription.morning_med', '=', $request->input('medicine'))
+            ->orWhere('prescription.afternoon_med', '=', $request->input('medicine'))
+            ->orWhere('prescription.night_med', '=', $request->input('medicine'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients)
+            ->with('dates', $dates)
+            ->with('comment', $comment);
+      }
+
 }

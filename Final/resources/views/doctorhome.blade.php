@@ -31,6 +31,26 @@
         </select>
         <input type="submit" value="Search" class="align2">
     </form>
+    <form action="/api/search_comment" method="post">
+        <label for="">Seach By Comments</label>
+        <select name="comment" class="where">
+            @foreach ($comment as $comment)
+                <option value="{{$comment->comment}}">{{$comment->comment}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Search" class="align2">
+    </form>
+    <form action="/api/search_medicine" method="post">
+        <label for="">Seach By Medicines</label>
+        <select name="medicine" class="where">
+            @foreach ($medicine as $medicine)
+                <option value="{{$medicine->morning_med}}">{{$medicine->morning_med}}</option>
+                <option value="{{$medicine->afternoon_med}}">{{$medicine->afternoon_med}}</option>
+                <option value="{{$medicine->night_med}}">{{$medicine->night_med}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Search" class="align2">
+    </form>
 <table>
     <tr>
         <th>Name</th>
