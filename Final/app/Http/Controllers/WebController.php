@@ -48,7 +48,9 @@ class WebController extends Controller
     }
 
     public function patient_view(){
-        return view('patienthome');
+        $patients = DB::table('users')->where("user_id", $_SESSION['user'])->get();
+        return view('patienthome')
+        ->with('patients', $patients);
     }
 
     public function doctor_view(){
