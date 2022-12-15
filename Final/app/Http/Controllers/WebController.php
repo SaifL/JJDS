@@ -68,7 +68,65 @@ class WebController extends Controller
     }
 
     public function caregiver_home(){
-      return view('caregiverhome');
+        date_default_timezone_set('America/New_York');
+        $caregiver = DB::table('users')->where('user_id', '=', $_SESSION['user'])->first();
+        $carename = $caregiver->first_name . " " . $caregiver->last_name;
+        $roster = DB::table('roster')->latest('date')->first();
+        $group_no = 0;
+        $todaysdate = date('Y-m-d');
+        
+
+        if($roster->caregiver1 == $carename){
+            $group_no = 1;
+        }
+        else if($roster->caregiver2 == $carename){
+            $group_no = 2;
+        }
+        else if($roster->caregiver3 == $carename){
+            $group_no = 3;
+        }
+        else if($roster->caregiver4 == $carename){
+            $group_no = 4;
+        }
+
+        $patientstuff = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
+        ->select('users.user_id')
+        ->where('patientinfo.group_no', '=', $group_no)
+        ->get();
+
+        $patientswork = DB::table('users')
+        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
+        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
+        ->select('daily.date', 'users.user_id')
+        ->where('patientinfo.group_no', '=', $group_no)
+        ->where('daily.date', '=', $todaysdate)
+        ->get();
+        
+
+        if(count($patientswork) == null){
+            foreach ($patientstuff as $patient) {
+                    DB::table('daily')->insert(
+                        ['patient_id' => $patient->user_id, 'date' => $todaysdate, 'morning_med' => 0, 
+                        'afternoon_med' => 0, 'night_med' => 0, 'breakfast' => 0, 'lunch' => 0, 'dinner' => 0]
+                    );
+            }
+        }
+        
+
+        $patients = DB::table('users')
+        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
+        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
+        ->select('users.user_id', 'users.first_name', 'users.last_name', 'daily.morning_med', 'daily.afternoon_med', 
+        'daily.night_med', 'daily.breakfast', 'daily.lunch', 'daily.dinner')
+        ->where('patientinfo.group_no', '=', $group_no)
+        ->where('daily.date', '=', $todaysdate)
+        ->get();
+
+
+
+        return view('caregiverhome')
+      ->with('patients', $patients);
     }
 
     public function admin_home(){
