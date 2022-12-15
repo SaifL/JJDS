@@ -28,5 +28,5 @@
         @endforeach
     </table>
     <input class="align15" type="submit" value="Ok">
-    <a class="align16" href="/ahome" >Cancel</a>
+    <a class="align16" href="/home" >Cancel</a>
 </html>

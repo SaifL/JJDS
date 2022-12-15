@@ -17,7 +17,7 @@
         <label class="where">Access Level: </label>
         <input class="righthere" type="text" name="access_level" placeholder="Access Level">
         <input class="align15" type="submit" value='Ok'>
-        <a href="/ahome" class="align16">Cancel</a>
+        <a href="/home" class="align16">Cancel</a>
     </form>
         {{-- <form action=""><input class="align16" type="submit" value="Cancel">
         </form> --}}
