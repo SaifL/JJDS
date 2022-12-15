@@ -10,10 +10,13 @@ class MainController extends Controller
 {
     // function that grabs the role of the user to send them to the proper home page
     // also verifies the user
-    //! ELSE STATEMENT NEEDS TO BE CHANGED
     public function role_login(Request $request){
         //grabs the whole user's row from the database
         $user = DB::table('users')->where('email', $request->input('email'))->first();
+        if ($user == null) {
+            $er_msg = "An incorrect email and password combination has been entered.";
+            return view('login', ['er_msg' => $er_msg]);
+        }
         if ($user->password == $request->input('password')) {
             // grabs role info using the role id from the user
             $role = DB::table('roles')->where('role_id', $user->role_id)->first();
@@ -218,6 +221,48 @@ class MainController extends Controller
         }
         return redirect('/employee');
       }
+      
+
+
+    //   public function update_payments(Request $request){
+    //     $payments = DB::table('payments')->where('patient_id', $request->input('patient_id'))->get();
+    //     $paymentsCount = $payments->count();
+    //   }
+
+    public function choose_date(Request $request){
+        $doctors = DB::table('roster')->where('date', $request->input('date'))->get();
+        $name = DB::table('users')->where('user_id', $request->input('user_id'))->get();
+        $dates = DB::table('roster')->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $fname = $name[0]->first_name;
+        $lname = $name[0]->last_name;
+        $user_id = $name[0]->user_id;
+        $d = $request->input('date');
+        return view('appointment')
+            ->with('user_id', $user_id)
+            ->with('d', $d)
+            ->with('doctors', $doctors)
+            ->with('lname', $lname)
+            ->with('fname', $fname)
+            ->with('patients', $patients)
+            ->with('dates', $dates);
+    }
+
+    public function make_appointment(Request $request){
+        $name = trim($request->input('doctor'));
+        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.\s([\w-])$#', '$1', $name);
+        $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $name ) );
+        $doctor = DB::table('users')
+            ->where('first_name', $first_name)
+            ->where('last_name', $last_name)
+            ->get();
+        DB::table('appointment')->insert([
+            'patient_id' => $request->input('user_id'),
+            'app_date' => $request->input('date'),
+            'doctor_id' => $doctor[0]->user_id
+        ]);
+        return redirect('/appointment');
+    }
 
       // Adds new role with access level to the DB
       public function make_role(Request $request){
@@ -464,6 +509,7 @@ class MainController extends Controller
             ->with('patients', $patients);
       }
 
+
     // Updates or inserts information based on whether the ok button is hit
     public function caregiverupdate(Request $request){
         date_default_timezone_set('America/New_York');
@@ -514,4 +560,23 @@ class MainController extends Controller
 
         return redirect('/chome');
     }
+
+      public function search_date(Request $request){
+        $patients = DB::table('users')
+            ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $tables = DB::table('users')
+            ->join('roles', 'users.role_id', '=','roles.role_id')
+            ->join('prescription', 'users.user_id','=','prescription.patient_id')
+            ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+            ->where('prescription.date', '=', $request->input('dates'))
+            ->get();
+        return view('doctorhome')
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('patients', $patients)
+            ->with('dates', $dates);
+      }
+
 }

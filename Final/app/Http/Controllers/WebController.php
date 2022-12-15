@@ -54,6 +54,7 @@ class WebController extends Controller
     public function doctor_view(){
         $patients = DB::table('users')
         ->where('role_id', 5)->get();
+        $dates = DB::table('prescription')->get();
         $tables = DB::table('users')
         ->join('roles', 'users.role_id', '=','roles.role_id')
         ->join('prescription', 'users.user_id','=','prescription.patient_id')
@@ -62,7 +63,8 @@ class WebController extends Controller
         ->get();
         return view('doctorhome')
         ->with('tables', $tables)
-        ->with('patients', $patients);
+        ->with('patients', $patients)
+        ->with('dates', $dates);
     }
 
     public function caregiver_home(){
@@ -151,7 +153,19 @@ class WebController extends Controller
 
     public function doc_appoint(){
         $dates = DB::table('roster')->get();
+        $patients = DB::table('users')->where('role_id', 5)->get();
+        $doctors = DB::table('roster')->get();
+        $lname = '';
+        $fname = '';
+        $d = '';
+        $user_id = '';
         return view('appointment')
+            ->with('user_id', $user_id)
+            ->with('d', $d)
+            ->with('fname', $fname)
+            ->with('lname', $lname)
+            ->with('doctors', $doctors)
+            ->with('patients', $patients)
             ->with('dates', $dates);
     }
 

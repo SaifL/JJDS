@@ -48,8 +48,9 @@ Route::post('/search_role', [MainController::class, 'search_role']);
 
 Route::post('/search_salary', [MainController::class, 'search_salary']);
 
-
 Route::post('/search_name2', [MainController::class, 'search_name2']);
+
+Route::post('/search_date', [MainController::class, 'search_date']);
 
 Route::post('/patient_id', [MainController::class, 'patient_id']);
 
@@ -61,3 +62,6 @@ Route::post('/patient_contact', [MainController::class, 'patient_contact']);
 
 Route::post('/patient_admission', [MainController::class, 'patient_admission']);
 
+Route::post('/choose_date', [MainController::class, 'choose_date']);
+
+Route::post('/make_appointment', [MainController::class, 'make_appointment']);
