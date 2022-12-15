@@ -32,7 +32,7 @@
         </select><br>
         <div class="goup"><label class="there6">Patient Name:</label><input class="empty5" type="text" value="{{$fname}} {{$lname}}" disabled><br></div>
         <div class="fitin"><input class="align3" type="submit" value="Ok">
-        <a href="/ahome" class="align4">Cancel</a>
+        <a href="/home" class="align4">Cancel</a>
         </form>
         {{-- <form action="/ahome">
             <input class="align4" type="submit" value="Cancel">

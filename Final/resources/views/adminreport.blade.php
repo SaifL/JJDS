@@ -15,7 +15,7 @@ $date = date('Y/m/d');
         <br>
         <br>
         <input class="align2" type="submit" value="Missed Patient Activity">
-        <a class="align16" href="/ahome">Cancel</a>
+        <a class="align16" href="/home">Cancel</a>
     </form>
     <table>
         <tr>

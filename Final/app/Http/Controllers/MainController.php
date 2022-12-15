@@ -46,6 +46,29 @@ class MainController extends Controller
         }
       }
 
+      public function go_home(){
+        $user = DB::table('users')->where('user_id', $_SESSION['user'])->get();
+        $role = DB::table('roles')->where('role_id', $user[0]->role_id)->first();
+        if ($role->access_level == 1) {
+            return redirect('/ahome');
+        }
+        elseif ($role->access_level == 2) {
+            return redirect('/shome');
+        }
+        elseif ($role->access_level == 3) {
+            return redirect('/dhome');
+        }
+        elseif ($role->access_level == 4) {
+            return redirect('/chome');
+        }
+        elseif ($role->access_level == 5) {
+            return redirect('/phome');
+        }
+        elseif ($role->access_level == 6) {
+            return redirect('/fhome');
+        }
+    }
+
 
       //Shows additional patient info after the user id is entered
       public function additional_info(Request $request){
