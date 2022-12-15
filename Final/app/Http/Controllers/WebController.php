@@ -244,7 +244,15 @@ class WebController extends Controller
     }
 
     public function admin_report(){
-        return view('adminreport');
+        $patients = [];
+        $reportdates = DB::table('daily')
+        ->select('date')
+        ->distinct()->get();
+
+
+        return view('adminreport')
+        ->with('patients', $patients)
+        ->with('reportdates', $reportdates);
     }
 
     public function payment(){
