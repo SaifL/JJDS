@@ -70,4 +70,6 @@ Route::post('/choose_date', [MainController::class, 'choose_date']);
 
 Route::post('/make_appointment', [MainController::class, 'make_appointment']);
 
+Route::get('/headache', [MainController::class, 'headache']);
+
 Route::get('/adminreport', [MainController::class, 'adminreport']);
