@@ -249,13 +249,14 @@ class MainController extends Controller
     }
 
     public function make_appointment(Request $request){
-        $name = trim($request->input('doctor'));
-        $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.\s([\w-])$#', '$1', $name);
-        $first_name = trim( preg_replace('#'.preg_quote($last_name,'#').'#', '', $name ) );
+        $name = explode(' ' ,$request->input('doctor'));
+        $first_name = $name[0];
+        $last_name = $name[1];
         $doctor = DB::table('users')
             ->where('first_name', $first_name)
             ->where('last_name', $last_name)
             ->get();
+        
         DB::table('appointment')->insert([
             'patient_id' => $request->input('user_id'),
             'app_date' => $request->input('date'),
