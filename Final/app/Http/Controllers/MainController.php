@@ -672,6 +672,7 @@ class MainController extends Controller
         }
     }
 
+
     //! Need to put how functions work please and answer questions you think people might have about the code!
     public function search_name2(Request $request){
         $patients = DB::table('users')
@@ -685,7 +686,9 @@ class MainController extends Controller
             ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
             ->where('users.last_name', '=', $request->input('last_name'))
             ->get();
+        $appointment = [];
         return view('doctorhome')
+            ->with('appointment',$appointment)
             ->with('tables', $tables)
             ->with('medicine',$medicine)
             ->with('patients', $patients)
@@ -693,9 +696,7 @@ class MainController extends Controller
             ->with('comment', $comment);
       }
 
-
-
-  public function search_date(Request $request){
+      public function search_date(Request $request){
         $patients = DB::table('users')
             ->where('role_id', 5)->get();
         $medicine = DB::table('prescription')->get();
@@ -707,54 +708,15 @@ class MainController extends Controller
             ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
             ->where('prescription.date', '=', $request->input('dates'))
             ->get();
+            $appointment = [];
         return view('doctorhome')
+            ->with('appointment',$appointment)
             ->with('tables', $tables)
             ->with('medicine',$medicine)
             ->with('patients', $patients)
             ->with('dates', $dates)
             ->with('comment', $comment);
-    }
-
-    public function adminreport(Request $request){
-        $reportdates = DB::table('daily')
-        ->select('date')
-        ->distinct()->get();
-
-        $roster = DB::table('roster')->where('date', '=', $request->input('date'))->first();
-
-        $patients = DB::table('users')
-        ->join('patientinfo', 'users.user_id', '=', 'patientinfo.user_id')
-        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
-        ->join('roster', 'roster.date', '=', 'daily.date')
-        ->select('users.user_id', 'users.first_name', 'patientinfo.group_no','users.last_name', 'daily.morning_med', 'daily.afternoon_med', 
-        'daily.night_med', 'daily.breakfast', 'daily.lunch', 'daily.dinner')
-        ->where('daily.date', '=', $request->input('date'))
-        ->get();
-
-
-        if($roster == null){
-            return redirect('/report');
-        }
-
-        $inputdate = $request->input('date');
-        $caregiver1 = $roster->caregiver1;
-        $caregiver2 = $roster->caregiver2;
-        $caregiver3 = $roster->caregiver3;
-        $caregiver4 = $roster->caregiver4;
-
-        $doctor = $roster->doctor;
-        return view('adminreport')
-        ->with('patients', $patients)
-        ->with('doctor', $doctor)
-        ->with('reportdates', $reportdates)
-        ->with('caregiver1', $caregiver1)
-        ->with('caregiver2', $caregiver2)
-        ->with('caregiver3', $caregiver3)
-        ->with('caregiver4', $caregiver4)
-        ->with('inputdate', $inputdate);
-    }
-            
-      
+      }
 
       public function search_comment(Request $request){
         $patients = DB::table('users')
@@ -768,7 +730,9 @@ class MainController extends Controller
             ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
             ->where('prescription.comment', '=', $request->input('comment'))
             ->get();
+        $appointment = [];
         return view('doctorhome')
+            ->with('appointment',$appointment)
             ->with('tables', $tables)
             ->with('medicine',$medicine)
             ->with('patients', $patients)
@@ -790,7 +754,9 @@ class MainController extends Controller
             ->orWhere('prescription.afternoon_med', '=', $request->input('medicine'))
             ->orWhere('prescription.night_med', '=', $request->input('medicine'))
             ->get();
+            $appointment = [];
         return view('doctorhome')
+            ->with('appointment',$appointment)
             ->with('tables', $tables)
             ->with('medicine',$medicine)
             ->with('patients', $patients)
@@ -798,4 +764,35 @@ class MainController extends Controller
             ->with('comment', $comment);
       }
 
+      public function future_appointments (Request $request) {
+        date_default_timezone_set('America/New_York');
+        $current_date = date('Y-m-d');
+        $patients = DB::table('users')
+        ->where('role_id', 5)->get();
+        $medicine = DB::table('prescription')->get();
+        $dates = DB::table('prescription')->get();
+        $comment = DB::table('prescription')->get();
+        $tables = DB::table('users')
+        ->join('roles', 'users.role_id', '=','roles.role_id')
+        ->join('prescription', 'users.user_id','=','prescription.patient_id')
+        ->select('users.first_name','users.last_name', 'prescription.date', 'prescription.comment','prescription.morning_med', 'prescription.afternoon_med', 'prescription.night_med')
+        ->get();
+
+        $appointment = DB::select("select app_date, last_name from users u JOIN appointment a on u.user_id = a.patient_id where a.app_date >= '".$current_date."' and a.app_date <= '".$request->input('date')."';");
+        // $appointment = DB::table('users')
+        // ->join('roles', 'users.role_id', '=','roles.role_id')
+        // ->join('appointment', 'users.user_id','=','appointment.patient_id')
+        // ->select('appointment.app_date','users.last_name')
+        // ->where('appointment.app_date', '>=', $current_date)
+        // ->where('appointment.app_date', '<=', $request->input('date'))
+        // ->get();
+   
+        return view('doctorhome')
+            ->with('appointment',$appointment)
+            ->with('tables', $tables)
+            ->with('medicine',$medicine)
+            ->with('dates', $dates)
+            ->with('patients', $patients)
+            ->with('comment', $comment);
+      }
 }

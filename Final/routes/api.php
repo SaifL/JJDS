@@ -56,6 +56,8 @@ Route::post('/search_comment', [MainController::class, 'search_comment']);
 
 Route::post('/search_medicine', [MainController::class, 'search_medicine']);
 
+Route::get('/future_appointments', [MainController::class, 'future_appointments']);
+
 Route::post('/patient_id', [MainController::class, 'patient_id']);
 
 Route::post('/patient_name', [MainController::class, 'patient_name']);
