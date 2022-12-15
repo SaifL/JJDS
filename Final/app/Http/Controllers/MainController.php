@@ -463,4 +463,55 @@ class MainController extends Controller
             ->with('medicine',$medicine)
             ->with('patients', $patients);
       }
+
+    // Updates or inserts information based on whether the ok button is hit
+    public function caregiverupdate(Request $request){
+        date_default_timezone_set('America/New_York');
+        $todaysdate = date('Y-m-d');
+        if($request->filled('morningmed')){
+            $morningMed = 1;
+        }
+        else{
+            $morningMed = 0;
+        }
+        if($request->filled('afternoonmed')){
+            $afternoonMed = 1;
+        }
+        else{
+            $afternoonMed = 0;
+        }
+        if($request->filled('nightmed')){
+            $nightMed = 1;
+        }
+        else{
+            $nightMed = 0;
+        }
+        if($request->filled('breakfast')){
+            $breakfast = 1;
+        }
+        else{
+            $breakfast = 0;
+        }
+        if($request->filled('lunch')){
+            $lunch = 1;
+        }
+        else{
+            $lunch = 0;
+        }
+        if($request->filled('dinner')){
+            $dinner = 1;
+        }
+        else{
+            $dinner = 0;
+        }
+
+        DB::table('daily')
+        ->where('patient_id', '=', $request->input('userId'))
+        ->where('date', '=', $todaysdate)
+        ->update(['morning_med' => $morningMed, 'afternoon_med' => $afternoonMed, 
+        'night_med' => $nightMed, 'breakfast' => $breakfast, 'lunch' => $lunch, 
+        'dinner' => $dinner]);
+
+        return redirect('/chome');
+    }
 }
