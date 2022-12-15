@@ -50,3 +50,45 @@ th{
     text-align: center;
     display: inline-block;
 }
+
+.align15{
+    border-style: hidden;
+    width: 15%;
+    height: 45px;
+    margin-top: 3%;
+    background-color: green;
+    color: white;
+}
+
+.align16{
+    border-style: hidden;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    height: 10px;
+    margin-left: 3%;
+    background-color: green;
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.checkbox{
+height: 20px;
+width: 50px;
+}
