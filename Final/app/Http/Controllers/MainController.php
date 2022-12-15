@@ -480,7 +480,7 @@ class MainController extends Controller
                 ->with('dinner', $dinner);
         }
         else{
-            return view('/fhome')
+            return view('familyhome')
                 ->with('doctor', $doctor)
                 ->with('check', $check)
                 ->with('caregiver', $caregiver4)
@@ -543,6 +543,109 @@ class MainController extends Controller
         'dinner' => $dinner]);
 
         return redirect('/chome');
+    }
+
+    public function headache(Request $request){
+        $patients = DB::table('users')->where("user_id", $_SESSION['user'])->get();
+        $patientinfo = DB::table('patientinfo')->where('user_id', '=', $_SESSION['user'])->first();
+
+        $roster = DB::table('roster')->where('date', '=', $request->input('Date'))->first();
+       
+        $patient = DB::table('users')
+        ->join('daily', 'users.user_id', '=', 'daily.patient_id')
+        ->select('morning_med', 'afternoon_med', 'night_med', 'breakfast', 
+        'lunch', 'dinner')
+        ->where('users.user_id', '=', $_SESSION['user'])
+        ->where('daily.date', '=', $request->input('Date'))
+        ->get();
+
+        $appointment = DB::table('appointment')
+        ->where('patient_id', '=', $_SESSION['user'])
+        ->where('app_Date', '=', $request->input('Date'))
+        ->first();
+
+        // These check if anything is null
+        if($roster == null){
+            return redirect('/phome');
+        }
+        if($patient == null){
+            return redirect('/phome');
+        }
+        
+        // This long portion is for linking the variables to their respective fields
+        $groupno = $patientinfo->group_no;
+        $doctor = $roster->doctor;
+        $caregiver1 = $roster->caregiver1;
+        $caregiver2 = $roster->caregiver2;
+        $caregiver3 = $roster->caregiver3;
+        $caregiver4 = $roster->caregiver4;
+        $morningMed = $patient[0]->morning_med;
+        $afternoonMed = $patient[0]->afternoon_med;
+        $nightMed = $patient[0]->night_med;
+        $breakfast = $patient[0]->breakfast;
+        $lunch = $patient[0]->lunch;
+        $dinner = $patient[0]->dinner;
+        if($appointment != null){
+             $check = 1;
+        }
+        else{
+            $check = 0;
+        }
+
+        // These will check for the patients group number and put the correct caregiver for said date with them.
+        if($groupno == 1){
+            
+            return view('patienthome')
+                ->with('patients', $patients)
+                ->with('doctor', $doctor)
+                ->with('check', $check)
+                ->with('caregiver', $caregiver1)
+                ->with('morningmed', $morningMed)
+                ->with('afternoonmed', $afternoonMed)
+                ->with('nightmed', $nightMed)
+                ->with('breakfast', $breakfast)
+                ->with('lunch', $lunch)
+                ->with('dinner', $dinner);
+        }
+        else if($groupno == 2){
+            return view('patienthome')
+                ->with('patients', $patients)
+                ->with('doctor', $doctor)
+                ->with('check', $check)
+                ->with('caregiver', $caregiver2)
+                ->with('morningmed', $morningMed)
+                ->with('afternoonmed', $afternoonMed)
+                ->with('nightmed', $nightMed)
+                ->with('breakfast', $breakfast)
+                ->with('lunch', $lunch)
+                ->with('dinner', $dinner);
+        }
+        else if($groupno == 3){
+            return view('patienthome')
+                ->with('patients', $patients)
+                ->with('doctor', $doctor)
+                ->with('check', $check)
+                ->with('caregiver', $caregiver3)
+                ->with('morningmed', $morningMed)
+                ->with('afternoonmed', $afternoonMed)
+                ->with('nightmed', $nightMed)
+                ->with('breakfast', $breakfast)
+                ->with('lunch', $lunch)
+                ->with('dinner', $dinner);
+        }
+        else{
+            return view('patienthome')
+                ->with('patients', $patients)
+                ->with('doctor', $doctor)
+                ->with('check', $check)
+                ->with('caregiver', $caregiver4)
+                ->with('morningmed', $morningMed)
+                ->with('afternoonmed', $afternoonMed)
+                ->with('nightmed', $nightMed)
+                ->with('breakfast', $breakfast)
+                ->with('lunch', $lunch)
+                ->with('dinner', $dinner);
+        }
     }
 
     //! Need to put how functions work please and answer questions you think people might have about the code!

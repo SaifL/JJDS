@@ -22,7 +22,7 @@ Route::get('/login', [WebController::class, 'login_view']);
 
 Route::get('/register', [WebController::class, 'register_view']);
 
-Route::get('/phome', [WebController::class, 'patient_view']);
+Route::get('/phome', [WebController::class, 'patientView']);
 
 Route::get('/dhome', [WebController::class, 'doctor_view']);
 
