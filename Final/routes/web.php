@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::get('/login', [WebController::class, 'login_view']);
 
 Route::get('/register', [WebController::class, 'register_view']);
 
-Route::get('/phome', [WebController::class, 'patient_view']);
+Route::get('/phome', [WebController::class, 'patientView']);
 
 Route::get('/dhome', [WebController::class, 'doctor_view']);
 
@@ -55,3 +56,5 @@ Route::get('/report', [WebController::class, 'admin_report']);
 Route::get('/payment', [WebController::class, 'payment']);
 
 Route::get('/patientofdoctor', [WebController::class, 'patientofdoctor']);
+
+Route::get('/home', [MainController::class, 'go_home']);

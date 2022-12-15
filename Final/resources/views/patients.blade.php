@@ -4,7 +4,8 @@
     <header><link rel="stylesheet" href="{{ asset('css/patients.css') }}"></header>
 
     <form action="/patients" method="get">
-        <input type="submit" value="Clear Filters">
+        <input class="align16" type="submit" value="Clear Filters">
+        <a href="/home" class="align16">Cancel</a>
     </form>
 
     <form action="/api/patient_id" method="post">

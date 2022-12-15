@@ -47,10 +47,28 @@ class WebController extends Controller
       ->with('dinner', $dinner);
     }
 
-    public function patient_view(){
+    public function patientView(){
         $patients = DB::table('users')->where("user_id", $_SESSION['user'])->get();
+        $doctor = "";
+        $caregiver = "";
+        $check = 0;
+        $morningMed = 0;
+        $afternoonMed = 0;
+        $nightMed = 0;
+        $breakfast = 0;
+        $lunch = 0;
+        $dinner = 0;
         return view('patienthome')
-        ->with('patients', $patients);
+    ->with('patients', $patients)
+      ->with('doctor', $doctor)
+      ->with('caregiver', $caregiver)
+      ->with('check', $check)
+      ->with('morningmed', $morningMed)
+      ->with('afternoonmed', $afternoonMed)
+      ->with('nightmed', $nightMed)
+      ->with('breakfast', $breakfast)
+      ->with('lunch', $lunch)
+      ->with('dinner', $dinner);
     }
 
     public function doctor_view(){

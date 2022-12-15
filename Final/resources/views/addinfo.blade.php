@@ -17,7 +17,7 @@
 
 
         <div class="fitin"><input class="align5" type="submit" value="Ok">
-        <a href="/dhome" class="align6">Cancel</a>   
+        <a href="/home" class="align6">Cancel</a>   
     </form>
     {{-- <form action="/dhome">
         <input class="align6" type="submit" value="Cancel">

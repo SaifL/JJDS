@@ -73,6 +73,6 @@
         <input class="righthere" type="text" name="salary">
         <br><br>
         <input class="align15" type="submit" value="Ok">
-        <a class="align4" href="/ahome" >Cancel</a>
+        <a class="align4" href="/home" >Cancel</a>
     </form>
 </html>
